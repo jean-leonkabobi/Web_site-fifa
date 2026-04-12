@@ -1,0 +1,802 @@
+        html {
+    scroll-behavior: smooth;
+        }
+        /* Styles généraux */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #EEF2FB;
+            color: #333;
+            font-family: 'Arial', sans-serif;
+        }
+
+        header {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            padding-bottom: 20px;
+        }
+
+        /* Navbar supérieure */
+        .top-navbar {
+            background-color: #0066b3;
+            padding: 10px 30px;
+            display: flex;
+            justify-content: flex-end;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .top-navbar a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+
+        /* Navbar principale */
+        .navbar {
+            background-color: #0066b3;
+            padding: 15px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .menu-icon {
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        .logo {
+            color: white;
+            font-size: 55px;
+            font-weight: bold;
+            margin-right: 30px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 14px;
+            flex-grow: 1;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 5px 10px;
+            height: auto;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 12px;
+            white-space: nowrap;
+            padding: 6px 8px;
+        }
+
+        .nav-right {
+            display: flex;
+            gap: 22px;
+            flex-grow: 1;
+            justify-content: flex-end;
+            align-items: center;
+            margin-left: 20px;
+        }
+
+        .nav-right i {
+            color: white;
+            font-size: 24px;
+            margin-left: 15px;
+            cursor: pointer;
+        }
+
+        .container {
+            padding: 200px 40px 90px;
+            background-color: #EEF2FB;
+        }
+
+        /* Section Billets et Hospitalité */
+        .section-billets_hospitalité {
+            margin: -30px 90px;
+            padding: 60px 0px 0px;
+            border-radius: 0px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background-position: center;
+            background-color: #ffffff;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: -14px;
+            margin-top: -40px;
+        }
+
+        .section-title {
+            font-size: 50px;
+            font-weight: normal;
+            margin-bottom: 10px;
+            color: #03122B;
+            text-align: center;
+        }
+
+        .section-description {
+            text-align: center;
+            font-size: 18px;
+            margin: -12px auto 5px;
+            max-width: 1400px;
+            line-height: 1.6;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .tournament-links {
+            display: flex;                 
+            justify-content: center;       
+            gap: 40px;                     
+            align-items: center;           
+            margin: 10px 0px ;
+            position: sticky;  
+            top: 0;           
+            z-index: 1000;
+            padding: -190px 0;
+            background: white;
+        }
+
+        .tournament-link {
+        width: 300px;                  /* largeur fixe pour toutes les images */
+        height: 180px;                 /* hauteur fixe pour garder le format paysage */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;              /* coupe tout ce qui dépasse du conteneur */
+        margin: 10px;                  /* espace entre les images */
+    }
+
+    .tournament-link img {
+        width: 100%;                   /* fait en sorte que l'image remplisse la largeur */
+        height: 100%;                  /* fait en sorte que l'image remplisse la hauteur */
+        object-fit: cover;             /* ajuste l'image pour remplir le conteneur sans déformation */
+        display: block;
+        filter: grayscale(100%) brightness(0.4);
+        transition: filter 0.3s ease;
+    }
+
+
+        .tournament-link:hover {
+            transform: translateY(-5px);
+        }
+
+        .tournament-link:hover img {
+            filter: brightness(1);
+        }
+        .tournament-link span {
+            display: block;
+            margin-top: 10px;
+            padding: 8px;
+        }
+
+        .tournament-link a {
+            display: block;
+            text-decoration: none;
+            text-align: center;
+            color: inherit;
+        }
+
+        /* Section Tournois Individuels */
+        /* Styles généraux pour toutes les sections de tournois */
+.tournament-section {
+    margin: 0px 90px;
+    padding: 100px 80px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 0px;
+    position: relative;
+}
+
+.tournament-section h2 {
+    font-size: 23px;
+    margin-bottom: 15px;
+    margin-top: -40px;
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.tournament-section .section-subtitle {
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 50px;
+}
+
+/* Conteneur des boîtes de dialogue */
+.dialog-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+/* Styles de base pour les boîtes de dialogue */
+.dialog-box {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    padding: 0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    max-width: 400px;
+    text-align: left;
+    overflow: hidden;
+    flex: 1;
+    min-width: 350px;
+}
+
+.dialog-box.center {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* Header des boîtes */
+.dialog-header {
+    background: #0066b3;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+/* Coupe du Monde 2026 - Bleu */
+#coupemonde2026 .dialog-header {
+    background: #304FFE;
+}
+
+/* Coupe du Monde Féminine 2027 - Forcer le bleu */
+#coupemondeU-172025delaFIFAQatar2025 .dialog-header {
+    background: #600028 !important;
+}
+
+/* Coupe du Monde U20 2025 - Forcer le bleu */
+#coupemondeU202025 .dialog-header {
+    background: #4F0063 !important;
+}
+
+/* Coupe du Monde Futsal 2025 - Forcer le bleu */
+#intercontinantalecoupe .dialog-header {
+    background: #0A84FF !important;
+}
+
+/*coupe arabe de la fifa 2025 */
+#coupearabe2025 .dialog-header {
+    background: #4B0618 !important;
+}
+
+.dialog-icon {
+    width: 60px;
+    height: 60px;
+    border: 3px solid #004d8c;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    flex-shrink: 0;
+}
+
+.dialog-icon i:not(.fa-gem) {
+    font-size: 24px;
+    color: #061029;
+    transform: rotate(145deg);
+    transition: transform 0.3s ease;
+}
+
+.dialog-icon i.fa-gem {
+    font-size: 24px;
+    color: #061029;
+    transform: rotate(0deg);
+}
+
+.dialog-title {
+    font-size: 24px;
+    color: white;
+    margin: 0;
+    font-weight: bold;
+}
+
+/* Corps des boîtes */
+.dialog-body {
+    padding: 30px;
+    background: #f8f9fa; /* Blanc cassé */
+    min-height: 200px;
+}
+
+.dialog-text {
+    margin-bottom: 25px;
+    line-height: 1.6;
+    color: #333;
+    font-size: 16px;
+}
+
+/* Boutons */
+.dialog-btn {
+    background: #0066b3;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.dialog-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/*Styles spécifiques pour chaque bouton */
+/* Coupe du Monde 2026 - BLEU */
+#coupemonde2026 .dialog-btn {
+    background: #304FFE; /* Bleu FIFA */
+}
+
+#coupemonde2026 .dialog-btn:hover {
+    background: #004d8c; /* Bleu foncé */
+}
+
+/* Coupe du Monde Féminine 2027 - ROSE/VIOLET */
+#coupemondeU-172025delaFIFAQatar2025 .dialog-btn {
+    background: #600028; /* Bleu */
+}
+
+/* Coupe du Monde U20 2025 - VERT */
+#coupemondeU202025 .dialog-btn {
+    background: #75148F; /* violet */
+}
+
+#coupemondeU202025 .dialog-btn:hover {
+    background: #0d0836; /* mauve foncé */
+}
+
+/* Coupe du Monde Futsal 2025 - Violet */
+#intercontinantalecoupe .dialog-btn {
+    background: #0A84FF; /* Violet */
+}
+
+/*coupe arabe de la fifa 2025 */
+#coupearabe2025 .dialog-btn {
+    background: #4B0618 ; /* Couleur spécifique */
+}
+
+/* Styles background spécifiques pour chaque section */
+
+/* Coupe du Monde 2026 - Arrière-plan image */
+#coupemonde2026 {
+    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/assets/images/image-coupe2026.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Coupe du Monde Féminine 2027 - Arrière-plan couleur */
+#coupemondeU-172025delaFIFAQatar2025 {
+    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/assets/images/coupemondeU-172025delaFIFAQatar2025.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+/* Coupe du Monde U20 2025 - Arrière-plan image */
+#coupemondeU202025 {
+    background-image: linear-gradient(135deg, #75148F 0%, #75148F 100%);
+}
+
+/* Coupe du Monde Futsal 2025 - Arrière-plan image */
+#intercontinentalecoupe {
+    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('chemin/vers/ton-image-intercontinentale.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/*coupe du monde arabe de la fifa 2025 - Arrière-plan couleur */
+#coupearabe2025 {
+    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('chemin/vers/ton-image-coupearabe.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+        .section_derniers_tournois1 {
+            margin: 30px 90px;
+            padding: 20px 0px 105px;
+            position: relative;
+            overflow: hidden;
+            margin-top: 30px;
+        }
+
+        .section-titrers {
+            margin: 30px 90px 30px 30px; /* haut droite bas gauche - valeur gauche réduite */
+            /* ou plus simplement : */
+            margin-left: 0px; /* Réduit la marge gauche */
+            margin-right: 90px;
+            margin-top: 20px;
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+            font-weight: normal;
+            color: #03122B;
+            text-align: left;
+            margin-top: 20px;
+            margin-bottom: 2rem;
+            padding-left: 0;
+        }
+
+.last-tournament {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.tournaments-carousel {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 10px 0;
+    scrollbar-width: none; /* Pour Firefox */
+    -ms-overflow-style: none; /* Pour IE et Edge */
+}
+
+/* Cache la barre de défilement pour Chrome/Safari */
+.tournaments-carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.tournament-items, .tournament-item {
+    flex: 0 0 auto;
+    width: 450px;
+    background: nones;
+    overflow: hidden;
+    /*box-shadow: 0 6px 12px rgba(0,0,0,0.15);*/
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.tournament-items img, .tournament-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+    .carousel-controls {
+            margin: 30px 70px 50px;
+            position: absolute;
+            right: 20px;
+            display: flex;
+            bottom: 20px;
+        }
+        .carousel-controls i {
+            background: #E4E8F0;
+            color: #59637A;
+            padding: 8px;
+            border-radius: 50%;
+            margin-left: 5px;
+            cursor: pointer;
+            z-index: 100;
+        }
+
+.carousel-controls i:hover {
+    background-color: #f0f0f0;
+    transform: scale(1.1);
+}
+
+        /* Section Actualités */
+        .news-section {
+            margin: 30px 90px;
+            padding: 60px 0px 0px;
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+            margin-top: -40px;
+        }
+
+        .section-title_news{
+            margin: 30px 90px;
+            font-size: 2.5rem;
+            font-weight: normal;
+            color: #03122B;
+            text-align: left;
+            margin-top: 20px;
+            margin-bottom: 2rem;
+            padding-left: 0;
+        }
+
+        .news-main {
+            flex: 2;
+        }
+
+        .news-image {
+            width: 700px;
+            height: 500px;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        .news-link {
+            color: #0066b3;
+            text-decoration: none;
+            font-weight: normal;
+            margin-bottom: 10px;
+            display: block;
+            text-align: left;
+        }
+
+        .news-article {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .news-title {
+            font-size: 24px;
+            margin-bottom: 15px;
+            font-weight: normal;
+        }
+
+        .news-sidebar {
+        flex: 1;
+        max-height: 70vh;
+        overflow-y: scroll; 
+        padding: 30px;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+        min-width: 400px;
+    }
+
+    .news-sidebar::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Opera */
+    }
+
+        .sidebar-header {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin-bottom: 25px;
+            padding: 15px 20px;
+        }
+
+        .show-all {
+            color: #0066b3;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .sidebar-box {
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: stretch;
+        }
+
+
+        .sidebar-box img {
+            width: 240px;
+            height: 160px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .sidebar-content {
+            padding: 15px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .sidebar-content a {
+            color: #0066b3;
+            text-decoration: none;
+            font-weight: normal;
+            margin-bottom: 5px;
+            margin-top: -14px;
+            display: inline;
+        }
+        .sidebar-content h4 {
+            margin: 0;
+            font-size: 14px;
+            color: #666;
+            line-height: 1.4;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0066b3;
+            color: white;
+            padding: 40px 30px 20px;
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            gap: 140px;
+        }
+
+        .footer-logo {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+
+        }
+
+        .social-icons i {
+            width: 32px;
+            height: 32px;
+            object-fit: contain;
+            cursor: pointer;
+        }
+
+        .footer-paragraphe {
+            white-space: nowrap;
+            font-size: 16px;
+        }
+
+        .app-stores {
+            display: flex;
+            gap: 1px;
+            align-items: center;
+        }
+
+        .app-stores img {
+            width: 120px;
+            height: 40px;
+            object-fit: contain;
+            cursor: pointer;
+        }
+
+        .footer-divider {
+            height: 1px;
+            background: rgba(255, 255, 255, 0.3);
+            margin: 20px 0;
+        }
+
+        .footer-middle {
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+}
+
+        .partenaire-logos { 
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            align-items: center;
+            flex-wrap: wrap;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 50px;
+        }
+
+        .partenaire-logos img {
+            height: 50px; /* Logos plus grands */
+            width: auto;
+            object-fit: contain;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .partenaire-logos img:hover {
+            transform: scale(1.1); /* Effet au survol */
+        }
+
+        .footer-middle h3 {
+            color: white;
+            font-size: 10px;
+            margin-bottom: 10px;
+            font-weight: 100;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 30px;
+            font-size: 14px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .tournament-links, .other-tournaments {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .dialog-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .dialog-box {
+                max-width: 80%;
+            }
+            
+            .news-section {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .top-navbar {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            .top-navbar a {
+                margin: 5px 10px;
+            }
+            
+            .navbar {
+                flex-wrap: wrap;
+            }
+            
+            .nav-links {
+                order: 3;
+                width: 100%;
+                margin-top: 15px;
+                overflow-x: auto;
+            }
+            
+            .tournament-links, .other-tournaments {
+                grid-template-columns: 1fr;
+            }
+            
+            .tournament-item {
+                min-width: 100%;
+            }
+            
+            .footer-top {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+        }

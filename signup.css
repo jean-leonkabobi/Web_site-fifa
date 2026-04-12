@@ -1,0 +1,244 @@
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Section image */
+        .image-section {
+            width: 60%;
+            background: url(assets/images/LoginInBgC.png);
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            position: relative;
+        }
+
+        /* Section formulaire */
+        .form-section {
+            width: 40%;
+            padding: 2rem;
+            overflow-y: auto;
+            background-color: #f8f9fa;
+        }
+
+        /* Header */
+        .form-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .steps {
+            display: flex;
+        }
+
+        .step-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #ddd;
+            margin-right: 5px;
+        }
+
+        .step-dot.active {
+            background-color: #0056b3;
+        }
+
+        .account-link {
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+
+        .account-link a {
+            color: #0056b3;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        /* Contenu principal */
+        .form-content {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .form-title {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: #212529;
+        }
+
+        .step-indicator {
+            font-size: 0.9rem;
+            color: #6c757d;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: #212529;
+        }
+
+        /* Formulaires */
+        .form-step {
+            display: none;
+        }
+
+        #step1:target,
+        #step2:target {
+            display: block;
+        }
+
+        /* Cacher step2 par défaut */
+        #step1 {
+            display: block;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #495057;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: border-color 0.15s ease-in-out;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: #0056b3;
+            box-shadow: 0 0 0 0.2rem rgba(0, 86, 179, 0.25);
+        }
+
+        .hint {
+            font-size: 0.8rem;
+            color: #6c757d;
+            margin-top: 0.25rem;
+        }
+
+        .date-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        .date-group select {
+            flex: 1;
+        }
+
+        /* Checkboxes */
+        .checkbox-group {
+            margin: 1.5rem 0;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .checkbox-item input {
+            width: auto;
+            margin-right: 10px;
+            margin-top: 0.25rem;
+        }
+
+        .checkbox-item label {
+            margin-bottom: 0;
+            font-weight: normal;
+        }
+
+        /* Boutons */
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #0A71B4;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 400;
+            cursor: pointer;
+            transition: background-color 0.15s ease-in-out;
+            text-decoration: none;
+            text-align: left;
+        }
+
+        .btn:hover {
+            background-color: #004494;
+        }
+
+        .btn:disabled {
+            background-color: #6c757d;
+            cursor: not-allowed;
+        }
+
+        /* Liens en bas */
+        .form-footer {
+            margin-top: 2rem;
+            text-align: left;
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+
+        .form-footer a {
+            color: #000000;
+            text-decoration: none;
+        }
+
+        .separator {
+            margin: 0 0.5rem;
+        }
+
+        /* Style pour le bouton CREATE ACCOUNT 
+        #create-account-btn {
+            background-color: #6c757d;
+        }
+
+        Quand une checkbox est cochée, activer le bouton 
+        #terms:checked ~ #create-account-btn,
+        #privacy:checked ~ #create-account-btn,
+        #newsletter:checked ~ #create-account-btn {
+            background-color: #0056b3;
+        }*/
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+            
+            .image-section, .form-section {
+                width: 100%;
+            }
+            
+            .image-section {
+                height: 30vh;
+            }
+            
+            .form-section {
+                height: 70vh;
+            }
+        }

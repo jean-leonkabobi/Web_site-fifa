@@ -1,0 +1,256 @@
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .background-section {
+            width: 60%;
+            background-image: url(assets/images/LoginInBgC.png);
+            background-size: cover;
+            background-position: center;
+        }
+
+        .form-section {
+            width: 30%;
+            min-width: 400px;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 40px;
+        }
+
+        h2 {
+            color: #03122B;
+            margin-bottom: 45px;
+            font-size: 40px;
+            font-weight: 600;
+        }
+
+        .form-group {
+            margin-bottom: 50px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #000000;
+            font-size: 0.9rem;
+        }
+
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #000000;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        input[type="email"]:focus,
+        input[type="password"]:focus {
+            border-color: #0A71B4;
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #0A71B4;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            background-color: #2964ae;
+        }
+
+        .forgot-password {
+            text-align: left;
+            margin-top: 15px;
+        }
+
+        .forgot-password a {
+            color: #4a90e2;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .forgot-password a:hover {
+            text-decoration: none;
+        }
+
+        .signup-section {
+            text-align: left;
+            margin-top: 40px;
+            padding-top: 20px;
+        }
+
+        .signup-section p {
+            margin-bottom: 15px;
+            color: #666;
+            font-size: 16px;
+        }
+
+        .btn-signup {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: transparent;
+            color: #000000;
+            border: 1px solid #000000;
+            border-radius: 30px;
+            font-size: 11px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: flex-start;
+            margin-top: 30px;
+            padding-top: 20px;
+        }
+
+        .footer a {
+            color: #000000;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .footer a:hover {
+            text-decoration: none;
+        }
+
+        .separator {
+            margin: 0 25px;
+            color: #000000;
+        }
+
+        /* Styles pour la boîte de dialogue */        
+        .forgot-password {
+            text-align: left;
+            margin-top: 15px;
+        }
+
+        .forgot-link {
+            color: #4a90e2;
+            text-decoration: none;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .forgot-link:hover {
+            text-decoration: none;
+        }
+
+        /* Votre CSS pour la boîte de dialogue */
+        .dialog-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .dialog {
+            background-color: white;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 800px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .dialog h2 {
+            margin-bottom: 20px;
+            color: #000000;
+            text-align: left;
+        }
+
+        .dialog p {
+            margin-bottom: 20px;
+            color: #000000;
+            text-align: left;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .dialog-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .btn-cancel {
+            color: black;
+            border: 1px solid #000000;
+            padding: 10px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+
+        .btn-send {
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+
+        .btn-send:hover {
+            background-color: #3a7bc8;
+        }
+
+        #dialog-toggle {
+            display: none;
+        }
+
+        #dialog-toggle:checked ~ .dialog-overlay {
+            display: flex;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            body {
+                flex-direction: column;
+            }
+            
+            .background-section {
+                width: 100%;
+                height: 40vh;
+            }
+            
+            .form-section {
+                width: 100%;
+                min-width: auto;
+            }
+        }

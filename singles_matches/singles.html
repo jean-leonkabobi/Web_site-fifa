@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Singles Matches</title>
+    <link rel="stylesheet" href="singles.css">
+</head>
+<body>
+    <!-- Barre de navigation -->
+    <header>
+    <!-- Navbar supérieure -->
+        <div class="top-navbar">
+            <a href="fifa_hospitality/hospitality.html">BILLETS ET HOSPITALITÉ</a>
+            <a href="singles_matches/singles.html">FIFA+</a>
+            <a href="shoppingplace/shopping.html">FIFA STORE</a>
+            <a href="#">FIFA COLLECT</a>
+            <a href="#">INSIDE FIFA</a>
+        </div>
+
+        <!-- Navbar principale -->
+        <nav class="navbar">
+            <div class="menu-icon" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <div class="logo">
+                <img src="assets/images/logo_fifa.png" alt="FIFA Logo">
+            </div>
+            <div class="nav-links">
+                <a href="singles_matches/singles.html">TOURNOIS</a>
+                <a href="singles_matches/singles.html">MATCH CENTRE</a>
+                <a href="#section-container">L'ACTU</a>
+                <a href="singles_matches/singles.html">CLASSEMENTS</a>
+                <a href="fifa_hospitality/hospitality.html#section-1">REGARDER SUR FIFA+</a>
+                <a href="fifa_hospitality/hospitality.html#section-3-container">JOUER</a>
+                <a href="shoppingplace/shopping.html">BOUTIQUE</a>
+                <a href="#section">INSIDE FIFA</a>
+            </div>
+            <div class="nav-right">
+                <i class="fas fa-search"></i>
+                <i class="fas fa-globe"></i>
+            <a href="signin.html" style="text-decoration: none;">
+                <i class="fas fa-user"></i>
+            </a>
+            </div>
+        </nav>
+</header>
+
+    <!-- Contenu principal -->
+    <div class="main-container">
+        <!-- Section titre et phrases -->
+        <section class="title-section">
+            <div class="title-container">
+                <h1 class="main-title">Match Centre</h1>
+                <div class="filter-buttons">
+                    <button class="filter-btn active">MASCULIN</button>
+                    <button class="filter-btn">FÉMININ</button>
+                    <button class="filter-btn matches">MATCHES</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Recherche et Calendrier -->
+<section class="search-calendar-section">
+    <!-- Barre de recherche -->
+    <div class="search-container">
+        <i class="fas fa-search search-icon"></i>
+        <input type="text" class="search-input" placeholder="Recherche d'une compétition ou d'une équipe...">
+        <button class="filter-button">
+            <i class="fas fa-sliders-h"></i>
+        </button>
+    </div>
+
+    <!-- Calendrier -->
+    <div class="calendar-wrapper">
+        <div class="calendar-scroll">
+            <button class="calendar-nav prev"><i class="fas fa-chevron-left"></i></button>
+            
+            <div class="calendar-days">
+                <!-- Les jours seront générés par JavaScript -->
+            </div>
+            
+            <button class="calendar-nav next"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        
+        <!-- Indicateur de matchs en direct -->
+        <div class="live-indicator">
+            <span class="live-dot"></span>
+            <span class="live-text">En direct (6)</span>
+        </div>
+    </div>
+
+    <!-- Résultats de recherche (caché par défaut) -->
+    <div class="search-results" style="display: none;">
+        <!-- Les résultats apparaîtront ici -->
+    </div>
+
+    <!-- Matchs du jour sélectionné -->
+    <div class="matches-container">
+        <!-- Les matchs seront affichés ici -->
+    </div>
+</section>
+
+
+        <!-- Section des sélecteurs -->
+        <section class="selectors-section">
+            <!-- Location -->
+            <div class="selector">
+                <input type="checkbox" id="location-toggle" class="selector-toggle">
+                <label for="location-toggle" class="selector-header">
+                    <h3>Location</h3>
+                    <div class="toggle-icon"></div>
+                </label>
+                <div class="selector-content">
+                    <div class="checkbox-item">
+                        <label for="all-location">All</label>
+                        <input type="checkbox" id="all-location" checked>
+                    </div>
+                    <div class="checkbox-item">
+                        <label for="stadium1">Stade 1</label>
+                        <input type="checkbox" id="stadium1">
+                    </div>
+                    <div class="checkbox-item">
+                        <label for="stadium2">Stade 2</label>
+                        <input type="checkbox" id="stadium2">
+                    </div>
+                    <div class="checkbox-item">
+                        <label for="stadium3">Stade 3</label>
+                        <input type="checkbox" id="stadium3">
+                    </div>
+                    <div class="checkbox-item">
+                        <label for="stadium4">Stade 4</label>
+                        <input type="checkbox" id="stadium4">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Team -->
+             <div class="selector">
+                <input type="checkbox" id="team-toggle" class="selector-toggle">
+                <label for="team-toggle" class="selector-header">
+                    <h3>Team</h3>
+                    <div class="toggle-icon"></div>
+                </label>
+                <div class="selector-content">
+                    <div class="checkbox-item">
+                        <label for="all-team">All</label>
+                        <input type="checkbox" id="all-team" checked>
+                    </div>
+                    <div class="checkbox-item">
+                        <label for="team1c">1C</label>
+                        <input type="checkbox" id="team1c">
+                    </div>
+                    <div class="checkbox-item">
+                        <label for="team1d">1D</label>
+                        <input type="checkbox" id="team1d">
+                    </div>
+                    <div class="checkbox-item">
+                        <label for="team1e">1E</label>
+                        <input type="checkbox" id="team1e">
+                    </div>
+                    <div class="checkbox-item">
+                        <label for="team1g">1G</label>
+                        <input type="checkbox" id="team1g">
+                    </div>
+                    <div class="checkbox-item">
+                        <label for="team1h">1H</label>
+                        <input type="checkbox" id="team1h">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Date Range -->
+            <div class="selector">
+                <input type="checkbox" id="date range-toggle" class="selector-toggle">
+                <label for="date range-toggle" class="selector-header">
+                    <h3>Date Range</h3>
+                    <div class="toggle-icon"></div>
+                </label>
+                <div class="selector-content">
+                    <div class="checkbox-item">
+                        <label for="january">Janvier 2023</label>
+                        <input type="checkbox" id="january">
+                    </div>
+                    <div class="checkbox-item">
+                        <label for="february">Février 2023</label>
+                        <input type="checkbox" id="february">
+                    </div>
+                    <div class="checkbox-item">
+                        <label for="march">Mars 2023</label>
+                        <input type="checkbox" id="march">
+                    </div>
+                    <div class="checkbox-item">
+                        <label for="april">Avril 2023</label>
+                        <input type="checkbox" id="april">
+                    </div>
+                    <div class="checkbox-item">
+                        <label for="may">Mai 2023</label>
+                        <input type="checkbox" id="may">
+                    </div>
+                    <div class="checkbox-item">
+                        <label for="june">Juin 2023</label>
+                        <input type="checkbox" id="june">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stage -->
+            <div class="selector">
+                <input type="checkbox" id="stage-toggle" class="selector-toggle">
+                <label for="stage-toggle" class="selector-header">
+                    <h3>Stage</h3>
+                    <div class="toggle-icon"></div>
+                </label>
+                <div class="selector-content">
+                    <div class="checkbox-item">
+                        <label for="all-stage">All</label>
+                        <input type="checkbox" id="all-stage" checked>
+                    </div>
+                    <div class="checkbox-item">
+                        <label for="groups">Groups</label>
+                        <input type="checkbox" id="groups">
+                    </div>
+                    <div class="checkbox-item">
+                        <label for="round32">Round 32</label>
+                        <input type="checkbox" id="round32">
+                    </div>
+                    <div class="checkbox-item">
+                        <label for="round16">Round 16</label>
+                        <input type="checkbox" id="round16">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Weekday/Weekend -->
+            <div class="selector">
+                <input type="checkbox" id="Weekday / Weekend-toggle" class="selector-toggle">
+                <label for="Weekday / Weekend-toggle" class="selector-header">
+                    <h3>Weekday / Weekend</h3>
+                    <div class="toggle-icon"></div>
+                </label>
+                <div class="selector-content">
+                    <div class="checkbox-item">
+                        <label for="all-days">All</label>
+                        <input type="checkbox" id="all-days" checked>
+                    </div>
+                    <div class="checkbox-item">
+                        <label for="weekday">Weekday</label>
+                        <input type="checkbox" id="weekday">
+                    </div>
+                    <div class="checkbox-item">
+                        <label for="weekend">Weekend</label>
+                        <input type="checkbox" id="weekend">
+                    </div>
+                </div>
+            </div>
+            
+        </section>
+
+
+        <!-- Section des contrôles -->
+        <section class="controls-section">
+            <div class="controls-section">
+                <div class="visibility-control">
+                    <input type="checkbox" id="visibility-toggle" class="visibility-toggle">
+                    <label for="visibility-toggle" class="visibility-text hide-text">Hide unavailable</label>
+                    <label for="visibility-toggle" class="eye-icon">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                            <circle cx="12" cy="12" r="3"></circle>
+                        </svg>
+                    </label>
+                    <label for="visibility-toggle" class="visibility-text show-text">Show unavailable</label>
+                </div>
+            </div>
+            <div class="sort-control">
+                <div class="sort-select">
+                    <select>
+                        <option>Sorted by date</option>
+                        <option>Date (ascending)</option>
+                        <option>Date (descending)</option>
+                        <option>Price (low to high)</option>
+                        <option>Price (high to low)</option>
+                    </select>
+                    <div class="arrow-icon">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section des matches -->
+        <section class="matches-section">
+    <div class="match-list">
+        <!-- Match 1 -->
+        <div class="match-item">
+            <div class="color-strip"></div>
+            <div class="match-content">
+                <div class="match-header">
+                    <div class="match-title">Group TBD | M7</div>
+                    <div class="match-teams">
+                        <div class="team">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNjY2IiBzdHJva2Utd2lkdGg9IjIiPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjEwIi8+PC9zdmc+" alt="Team C">
+                            <span class="team-letter">C</span>
+                        </div>
+                        <div class="vs">VS</div>
+                        <div class="team">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNjY2IiBzdHJva2Utd2lkdGg9IjIiPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjEwIi8+PC9zdmc+" alt="Team D">
+                            <span class="team-letter">D</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="match-date">Octobre 1 Mercredi</div>
+                
+                <div class="match-location">
+                    <div class="location-city">East Rutherford, United States</div>
+                    <div class="stadium-name">New York New Jersey Stadium</div>
+                </div>
+                
+                <div class="match-price">
+                    <div class="price-tag">Starting at</div>
+                    <div class="price">$1,850 USD/pp</div>
+                </div>
+                
+                <div class="details-arrow">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- Match 2 -->
+        <div class="match-item">
+            <div class="color-strip"></div>
+            <div class="match-content">
+                <div class="match-header">
+                    <div class="match-title">Group A | M3</div>
+                    <div class="match-teams">
+                        <div class="team">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSMjNjY2IiBzdHJva2Utd2lkdGg9IjIiPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjEwIi8+PC9zdmc+" alt="Team A">
+                            <span class="team-letter">A</span>
+                        </div>
+                        <div class="vs">VS</div>
+                        <div class="team">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSMjNjY2IiBzdHJva2Utd2lkdGg9IjIiPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjEwIi8+PC9zdmc+" alt="Team B">
+                            <span class="team-letter">B</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="match-date">Octobre 5 Dimanche</div>
+                
+                <div class="match-location">
+                    <div class="location-city">Los Angeles, United States</div>
+                    <div class="stadium-name">Stade Olympique</div>
+                </div>
+                
+                <div class="match-price">
+                    <div class="price-tag">Starting at</div>
+                    <div class="price">$1,250 USD/pp</div>
+                </div>
+                
+                <div class="details-arrow">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Match 3 -->
+         <div class="match-item">
+            <div class="color-strip"></div>
+            <div class="match-content">
+                <div class="match-header">
+                    <div class="match-title">Group A | M3</div>
+                    <div class="match-teams">
+                        <div class="team">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSMjNjY2IiBzdHJva2Utd2lkdGg9IjIiPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjEwIi8+PC9zdmc+" alt="Team A">
+                            <span class="team-letter">A</span>
+                        </div>
+                        <div class="vs">VS</div>
+                        <div class="team">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSMjNjY2IiBzdHJva2Utd2lkdGg9IjIiPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjEwIi8+PC9zdmc+" alt="Team B">
+                            <span class="team-letter">B</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="match-date">Octobre 5 Dimanche</div>
+                
+                <div class="match-location">
+                    <div class="location-city">Los Angeles, United States</div>
+                    <div class="stadium-name">Stade Olympique</div>
+                </div>
+                
+                <div class="match-price">
+                    <div class="price-tag">Starting at</div>
+                    <div class="price">$1,250 USD/pp</div>
+                </div>
+                
+                <div class="details-arrow">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Match 4 -->
+         <div class="match-item">
+            <div class="color-strip"></div>
+            <div class="match-content">
+                <div class="match-header">
+                    <div class="match-title">Group A | M3</div>
+                    <div class="match-teams">
+                        <div class="team">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSMjNjY2IiBzdHJva2Utd2lkdGg9IjIiPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjEwIi8+PC9zdmc+" alt="Team A">
+                            <span class="team-letter">A</span>
+                        </div>
+                        <div class="vs">VS</div>
+                        <div class="team">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSMjNjY2IiBzdHJva2Utd2lkdGg9IjIiPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjEwIi8+PC9zdmc+" alt="Team B">
+                            <span class="team-letter">B</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="match-date">Octobre 5 Dimanche</div>
+                
+                <div class="match-location">
+                    <div class="location-city">Los Angeles, United States</div>
+                    <div class="stadium-name">Stade Olympique</div>
+                </div>
+                
+                <div class="match-price">
+                    <div class="price-tag">Starting at</div>
+                    <div class="price">$1,250 USD/pp</div>
+                </div>
+                
+                <div class="details-arrow">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Match 5 -->
+         <div class="match-item">
+            <div class="color-strip"></div>
+            <div class="match-content">
+                <div class="match-header">
+                    <div class="match-title">Group A | M3</div>
+                    <div class="match-teams">
+                        <div class="team">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSMjNjY2IiBzdHJva2Utd2lkdGg9IjIiPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjEwIi8+PC9zdmc+" alt="Team A">
+                            <span class="team-letter">A</span>
+                        </div>
+                        <div class="vs">VS</div>
+                        <div class="team">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSMjNjY2IiBzdHJva2Utd2lkdGg9IjIiPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjEwIi8+PC9zdmc+" alt="Team B">
+                            <span class="team-letter">B</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="match-date">Octobre 5 Dimanche</div>
+                
+                <div class="match-location">
+                    <div class="location-city">Los Angeles, United States</div>
+                    <div class="stadium-name">Stade Olympique</div>
+                </div>
+                
+                <div class="match-price">
+                    <div class="price-tag">Starting at</div>
+                    <div class="price">$1,250 USD/pp</div>
+                </div>
+                
+                <div class="details-arrow">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Match 6 -->
+         <div class="match-item">
+            <div class="color-strip"></div>
+            <div class="match-content">
+                <div class="match-header">
+                    <div class="match-title">Group A | M3</div>
+                    <div class="match-teams">
+                        <div class="team">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSMjNjY2IiBzdHJva2Utd2lkdGg9IjIiPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjEwIi8+PC9zdmc+" alt="Team A">
+                            <span class="team-letter">A</span>
+                        </div>
+                        <div class="vs">VS</div>
+                        <div class="team">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSMjNjY2IiBzdHJva2Utd2lkdGg9IjIiPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjEwIi8+PC9zdmc+" alt="Team B">
+                            <span class="team-letter">B</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="match-date">Octobre 5 Dimanche</div>
+                
+                <div class="match-location">
+                    <div class="location-city">Los Angeles, United States</div>
+                    <div class="stadium-name">Stade Olympique</div>
+                </div>
+                
+                <div class="match-price">
+                    <div class="price-tag">Starting at</div>
+                    <div class="price">$1,250 USD/pp</div>
+                </div>
+                
+                <div class="details-arrow">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Match 7 -->
+         <div class="match-item">
+            <div class="color-strip"></div>
+            <div class="match-content">
+                <div class="match-header">
+                    <div class="match-title">Group A | M3</div>
+                    <div class="match-teams">
+                        <div class="team">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSMjNjY2IiBzdHJva2Utd2lkdGg9IjIiPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjEwIi8+PC9zdmc+" alt="Team A">
+                            <span class="team-letter">A</span>
+                        </div>
+                        <div class="vs">VS</div>
+                        <div class="team">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSMjNjY2IiBzdHJva2Utd2lkdGg9IjIiPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjEwIi8+PC9zdmc+" alt="Team B">
+                            <span class="team-letter">B</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="match-date">Octobre 5 Dimanche</div>
+                
+                <div class="match-location">
+                    <div class="location-city">Los Angeles, United States</div>
+                    <div class="stadium-name">Stade Olympique</div>
+                </div>
+                
+                <div class="match-price">
+                    <div class="price-tag">Starting at</div>
+                    <div class="price">$1,250 USD/pp</div>
+                </div>
+                
+                <div class="details-arrow">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <!--Match8-->
+        <div class="match-item">
+            <div class="color-strip"></div>
+            <div class="match-content">
+                <div class="match-header">
+                    <div class="match-title">Group A | M3</div>
+                    <div class="match-teams">
+                        <div class="team">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSMjNjY2IiBzdHJva2Utd2lkdGg9IjIiPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjEwIi8+PC9zdmc+" alt="Team A">
+                            <span class="team-letter">A</span>
+                        </div>
+                        <div class="vs">VS</div>
+                        <div class="team">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSMjNjY2IiBzdHJva2Utd2lkdGg9IjIiPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjEwIi8+PC9zdmc+" alt="Team B">
+                            <span class="team-letter">B</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="match-date">Octobre 5 Dimanche</div>
+                
+                <div class="match-location">
+                    <div class="location-city">Los Angeles, United States</div>
+                    <div class="stadium-name">Stade Olympique</div>
+                </div>
+                
+                <div class="match-price">
+                    <div class="price-tag">Starting at</div>
+                    <div class="price">$1,250 USD/pp</div>
+                </div>
+                
+                <div class="details-arrow">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <!--Match9-->
+        <div class="match-item">
+            <div class="color-strip"></div>
+            <div class="match-content">
+                <div class="match-header">
+                    <div class="match-title">Group A | M3</div>
+                    <div class="match-teams">
+                        <div class="team">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSMjNjY2IiBzdHJva2Utd2lkdGg9IjIiPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjEwIi8+PC9zdmc+" alt="Team A">
+                            <span class="team-letter">A</span>
+                        </div>
+                        <div class="vs">VS</div>
+                        <div class="team">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSMjNjY2IiBzdHJva2Utd2lkdGg9IjIiPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjEwIi8+PC9zdmc+" alt="Team B">
+                            <span class="team-letter">B</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="match-date">Octobre 5 Dimanche</div>
+                
+                <div class="match-location">
+                    <div class="location-city">Los Angeles, United States</div>
+                    <div class="stadium-name">Stade Olympique</div>
+                </div>
+                
+                <div class="match-price">
+                    <div class="price-tag">Starting at</div>
+                    <div class="price">$1,250 USD/pp</div>
+                </div>
+                
+                <div class="details-arrow">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <!--Match10-->
+        <div class="match-item">
+            <div class="color-strip"></div>
+            <div class="match-content">
+                <div class="match-header">
+                    <div class="match-title">Group A | M3</div>
+                    <div class="match-teams">
+                        <div class="team">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSMjNjY2IiBzdHJva2Utd2lkdGg9IjIiPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjEwIi8+PC9zdmc+" alt="Team A">
+                            <span class="team-letter">A</span>
+                        </div>
+                        <div class="vs">VS</div>
+                        <div class="team">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSMjNjY2IiBzdHJva2Utd2lkdGg9IjIiPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjEwIi8+PC9zdmc+" alt="Team B">
+                            <span class="team-letter">B</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="match-date">Octobre 5 Dimanche</div>
+                
+                <div class="match-location">
+                    <div class="location-city">Los Angeles, United States</div>
+                    <div class="stadium-name">Stade Olympique</div>
+                </div>
+                
+                <div class="match-price">
+                    <div class="price-tag">Starting at</div>
+                    <div class="price">$1,250 USD/pp</div>
+                </div>
+                
+                <div class="details-arrow">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <!--Match11-->
+        <div class="match-item">
+            <div class="color-strip"></div>
+            <div class="match-content">
+                <div class="match-header">
+                    <div class="match-title">Group A | M3</div>
+                    <div class="match-teams">
+                        <div class="team">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSMjNjY2IiBzdHJva2Utd2lkdGg9IjIiPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjEwIi8+PC9zdmc+" alt="Team A">
+                            <span class="team-letter">A</span>
+                        </div>
+                        <div class="vs">VS</div>
+                        <div class="team">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSMjNjY2IiBzdHJva2Utd2lkdGg9IjIiPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjEwIi8+PC9zdmc+" alt="Team B">
+                            <span class="team-letter">B</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="match-date">Octobre 5 Dimanche</div>
+                
+                <div class="match-location">
+                    <div class="location-city">Los Angeles, United States</div>
+                    <div class="stadium-name">Stade Olympique</div>
+                </div>
+                
+                <div class="match-price">
+                    <div class="price-tag">Starting at</div>
+                    <div class="price">$1,250 USD/pp</div>
+                </div>
+                
+                <div class="details-arrow">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </div>
+            </div>
+        </div>
+        <!--Match12-->
+        <div class="match-item">
+            <div class="color-strip"></div>
+            <div class="match-content">
+                <div class="match-header">
+                    <div class="match-title">Group A | M3</div>
+                    <div class="match-teams">
+                        <div class="team">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSMjNjY2IiBzdHJva2Utd2lkdGg9IjIiPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjEwIi8+PC9zdmc+" alt="Team A">
+                            <span class="team-letter">A</span>
+                        </div>
+                        <div class="vs">VS</div>
+                        <div class="team">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSMjNjY2IiBzdHJva2Utd2lkdGg9IjIiPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjEwIi8+PC9zdmc+" alt="Team B">
+                            <span class="team-letter">B</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="match-date">Octobre 5 Dimanche</div>
+                
+                <div class="match-location">
+                    <div class="location-city">Los Angeles, United States</div>
+                    <div class="stadium-name">Stade Olympique</div>
+                </div>
+                
+                <div class="match-price">
+                    <div class="price-tag">Starting at</div>
+                    <div class="price">$1,250 USD/pp</div>
+                </div>
+                
+                <div class="details-arrow">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    </div>
+
+    <!-- Section Add List -->
+    <section class="add-list-section">
+        <input type="checkbox" id="add-list-toggle" class="add-list-toggle">
+        <label for="add-list-toggle" class="add-list-header">
+            <h3>Add List</h3>
+            <span class="expand-btn"></span>
+        </label>
+        <div class="add-list-content">
+            <button class="add-matches-btn">Add and Configure Matches</button>
+            <div class="total-price">
+                <span>Total:</span>
+                <span>$0</span>
+            </div>
+            <button class="checkout-btn">Checkout</button>
+        </div>
+    </section>
+</body>
+</html>
