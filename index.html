@@ -1,331 +1,335 @@
-<!DOCTYPE html>
-<html lang="fr" class="antialiased">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FIFA Ticketing & Hospitality</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <style>
-        html {
-        scroll-behavior: smooth;
-        }
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f4f5f7;
-        }
-        /* Custom Gradients to simulate the background images */
-        .bg-tourney-2026 {
-            background: linear-gradient(135deg, #000000 0%, #1a0033 50%, #4d0000 100%);
-            position: relative;
-            overflow: hidden;
-        }
-        .bg-tourney-2026::before {
-            content: '';
-            position: absolute;
-            top: -50%; left: -50%; width: 200%; height: 200%;
-            background: radial-gradient(circle, rgba(255,0,100,0.2) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 20%, rgba(0,100,255,0.3) 0%, transparent 40%);
-            z-index: 0;
-        }
-        .bg-tourney-2027 {
-            background: linear-gradient(135deg, #2a3d1b 0%, #4a6a2c 50%, #1b3d22 100%);
-        }
-        .bg-tourney-u20 {
-            background: linear-gradient(135deg, #1f4024 0%, #2d5a34 50%, #162d1a 100%);
-        }
-    
-        .hide-scrollbar {
-        scrollbar-width: none;
-        -ms-overflow-style: none;
-        }
-        .hide-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
-    </style>
-</head>
-<body class="text-gray-900 min-h-screen flex flex-col">
-<!-- Conteneur sticky qui englobe toute la barre -->
-<div class="sticky top-0 z-50">
-    <!-- Top Light Nav - Liens vers la droite avec fond bleu -->
-    <div class="bg-[#045694] hidden md:block">
-        <div class="px-4 flex justify-end items-center h-10 space-x-6 text-xs font-medium text-white tracking-wide">
-            <a href="fifa_hospitality/hospitality.html" class="hover:text-gray-200 transition">BILLETS ET HOSPITALITÉ</a>
-            <a href="singles_matches/singles.html" class="hover:text-gray-200 transition">FIFA+</a>
-            <a href="shoppingplace/shopping.html" class="hover:text-gray-200 transition">FIFA STORE</a>
-            <a href="#" class="hover:text-gray-200 transition">FIFA COLLECT</a>
-            <a href="#" class="hover:text-gray-200 transition">INSIDE FIFA</a>
+    <!DOCTYPE html>
+    <html lang="fr" class="antialiased">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Billets et hospitalité | FIFA</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script src="https://unpkg.com/lucide@latest"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+        <style>
+            html {
+                scroll-behavior: smooth;
+            }
+            body {
+                font-family: 'Inter', sans-serif;
+                background-color: #f4f5f7;
+            }
+            /* Custom Gradients to simulate the background images */
+            .bg-tourney-2026 {
+                background: linear-gradient(135deg, #000000 0%, #1a0033 50%, #4d0000 100%);
+                position: relative;
+                overflow: hidden;
+            }
+            .bg-tourney-2026::before {
+                content: '';
+                position: absolute;
+                top: -50%; left: -50%; width: 200%; height: 200%;
+                background: radial-gradient(circle, rgba(255,0,100,0.2) 0%, transparent 50%),
+                            radial-gradient(circle at 80% 20%, rgba(0,100,255,0.3) 0%, transparent 40%);
+                z-index: 0;
+            }
+            .bg-tourney-2027 {
+                background: linear-gradient(135deg, #2a3d1b 0%, #4a6a2c 50%, #1b3d22 100%);
+            }
+            .bg-tourney-u20 {
+                background: linear-gradient(135deg, #1f4024 0%, #2d5a34 50%, #162d1a 100%);
+            }
+        
+            .hide-scrollbar {
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+            }
+            .hide-scrollbar::-webkit-scrollbar {
+                display: none;
+            }
+        </style>
+    </head>
+    <body class="text-gray-900 min-h-screen flex flex-col">
+
+    <!-- Conteneur sticky qui englobe toute la barre -->
+    <div class="sticky top-0 z-50">
+        <!-- Top Light Nav - Liens vers la droite avec fond bleu -->
+        <div class="bg-[#044a80] hidden md:block">
+            <div class="flex justify-start items-center h-10 space-x-6 text-xs font-medium text-white tracking-wide" style="padding-left: 1180px;">
+                <a href="fifa_hospitality/hospitality.html" class="hover:text-gray-200 transition">BILLETS ET HOSPITALITÉ</a>
+                <a href="#" class="hover:text-gray-200 transition">FIFA+</a>
+                <a href="shoppingplace/shopping.html" class="hover:text-gray-200 transition">FIFA STORE</a>
+                <a href="shoppingplace/shopping.html" class="hover:text-gray-200 transition">FIFA COLLECT</a>
+                <a href="#" class="hover:text-gray-200 transition">FIFA REWARDS</a>
+            </div>
         </div>
-    </div>
 
-    <!-- Ligne de séparation blanche -->
-    <div class="border-t border-white/10" style="border-top-width: 0.5px;"></div>
-
-    <!-- Main Header -->
-    <header class="bg-[#045694] text-white">
-        <div class="px-4 h-16 flex items-center justify-between">
+        <!-- Main Header -->
+        <header class="bg-[#045694] text-white">
+            <div class="px-4 h-16 flex items-center justify-between">
+                
+        <!-- Partie gauche : Menu hamburger -->
+        <div class="relative">
+            <button id="hamburgerBtn" class="p-1 rounded transition" style="margin-left: 145px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
             
-            <!-- Partie gauche : Menu hamburger + Logo FIFA -->
-            <div class="flex items-center space-x-6">
-                <!-- Menu fromage (hamburger) -->
-                <div class="relative">
-                    <button id="hamburgerBtn" class="p-1 hover:bg-blue-800 rounded transition">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6">
-                            <line x1="3" y1="12" x2="21" y2="12"></line>
-                            <line x1="3" y1="6" x2="21" y2="6"></line>
-                            <line x1="3" y1="18" x2="21" y2="18"></line>
+            <!-- Menu déroulant principal -->
+            <div id="mobileMenu" class="hidden absolute left-0 top-full mt-2 w-96 bg-[#045694] text-white rounded-md shadow-xl z-50">
+                <div class="flex flex-col py-2">
+                    <!-- BOUTIQUE avec sous-menu accordéon -->
+                    <div class="flex flex-col py-2">
+                <!-- BOUTIQUE avec sous-menu accordéon -->
+                <div>
+                    <button id="boutiqueAccordionBtn" class="w-full text-left px-6 py-3 text-base font-medium transition flex items-center justify-between">
+                        BOUTIQUE
+                        <svg id="boutiqueArrow" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-200">
+                            <polyline points="6 9 12 15 18 9"></polyline>
                         </svg>
                     </button>
                     
-                    <!-- Menu déroulant -->
-                    <div id="mobileMenu" class="hidden absolute left-0 top-full mt-2 w-56 bg-white text-gray-800 rounded-md shadow-xl z-50">
+                    <!-- Sous-menu -->
+                    <div id="boutiqueSubMenuAccordion">
                         <div class="flex flex-col py-2">
-                            <a href="singles_matches/singles.html" class="px-4 py-2 text-sm hover:bg-gray-100 transition">TOURNOIS</a>
-                            <a href="singles_matches/singles.html" class="px-4 py-2 text-sm hover:bg-gray-100 transition">MATCH CENTRE</a>
-                            <a href="#section-container" class="px-4 py-2 text-sm hover:bg-gray-100 transition">L'ACTU</a>
-                            <a href="singles_matches/singles.html" class="px-4 py-2 text-sm hover:bg-gray-100 transition">CLASSEMENTS</a>
-                            <a href="#" class="px-4 py-2 text-sm hover:bg-gray-100 transition">JOUER</a>
-                            <a href="#" class="px-4 py-2 text-sm hover:bg-gray-100 transition">FIFA REWARDS</a>
-                            <a href="#" class="px-4 py-2 text-sm hover:bg-gray-100 transition">BOUTIQUE</a>
-                            <a href="#" class="px-4 py-2 text-sm hover:bg-gray-100 transition">REGARDER SUR FIFA+</a>
-                            <a href="#" class="px-4 py-2 text-sm hover:bg-gray-100 transition">INSIDE FIFA</a>
+                            <a href="shoppingplace/shopping.html" class="px-6 py-3 text-base transition">FIFA STORE</a>
+                            <a href="fifa_hospitality/hospitality.html" class="px-6 py-3 text-base transition">BILLETS ET HOSPITALITÉ</a>
+                            <a href="shoppingplace/shopping.html" class="px-6 py-3 text-base transition">FIFA COLLECT</a>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Logo FIFA -->
-                <img src="assets/images/logo_fifa.png">
-                
-                <!-- Navigation desktop (visible sur grands écrans) -->
-                <nav class="hidden lg:flex space-x-5 text-sm font-medium uppercase tracking-wide">
-                    <a href="singles_matches/singles.html" class="hover:text-gray-200 transition">TOURNOIS</a>
-                    <a href="singles_matches/singles.html" class="hover:text-gray-200 transition">MATCH CENTRE</a>
-                    <a href="#section-container" class="hover:text-gray-200 transition">L'ACTU</a>
-                    <a href="singles_matches/singles.html" class="hover:text-gray-200 transition">CLASSEMENTS</a>
-                    <a href="fifa_hospitality/hospitality.html#section-3-container" class="hover:text-gray-200 transition">JOUER</a>
-                    <a href="#" class="hover:text-gray-200 transition">FIFA REWARDS</a>
-                    <a href="shoppingplace/shopping.html" class="hover:text-gray-200 transition">BOUTIQUE</a>
-                    <a href="fifa_hospitality/hospitality.html#section-1" class="hover:text-gray-200 transition">REGARDER SUR FIFA+</a>
-                    <a href="#latest" class="hover:text-gray-200 transition">INSIDE FIFA</a>
-                </nav>
-            </div>
-            
-            <!-- Icônes de droite : Loupe, Globe, Utilisateur -->
-            <div class="flex items-center space-x-3">
-                <button class="p-2 hover:bg-blue-800 rounded transition">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                    </svg>
-                </button>
-                <button class="p-2 hover:bg-blue-800 rounded transition">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="10"></circle>
-                        <line x1="2" y1="12" x2="22" y2="12"></line>
-                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-                    </svg>
-                </button>
-                <button class="p-2 rounded transition">
-                    <a href="signin.html" class="p-2  rounded transition">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="12" cy="7" r="4"></circle>
-                        </svg>
-                    </a>
-                </button>
+    </div>
+                </div>
             </div>
         </div>
-    </header>
-</div>
-
-<script>
-    // Toggle menu hamburger
-    const hamburgerBtn = document.getElementById('hamburgerBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-    
-    if (hamburgerBtn && mobileMenu) {
-        hamburgerBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            mobileMenu.classList.toggle('hidden');
-        });
         
-        // Fermer en cliquant ailleurs
-        document.addEventListener('click', (e) => {
-            if (!hamburgerBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
-                mobileMenu.classList.add('hidden');
-            }
-        });
-    }
-</script>
-
-    <main class="flex-grow">
-        <!-- Hero Section -->
-        <!-- Conteneur parent pour gérer le sticky -->
-        <div class="relative">
-            <!-- Section BILLETS ET HOSPITALITÉ -->
-        <section class="bg-white pt-16 pb-8 px-4 text-center" id="stickySection">
-            <div class="max-w-4xl mx-auto">
-                <h1 class="text-4xl md:text-5xl font-semibold tracking-tight text-gray-900 mb-6">BILLETS ET HOSPITALITÉ</h1>
-                <p class="text-lg md:text-xl text-gray-600 mb-12 max-w-3xl mx-auto font-medium">
-                    Bienvenue à l'endroit idéal pour obtenir toutes les informations de premier ordre dont vous avez besoin concernant les billets et l'hospitalité pour les tournois FIFA les plus passionnants.
-                </p>
-            </div>
-        </section>
-
-        <!-- Conteneur des images qui deviendra sticky -->
-        <div id="stickyImagesContainer" class="sticky top-[73px] z-40 bg-white pt-4 pb-8">
-            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-80">
-                <!-- Logo FIFA (lien vers section 2026) -->
-                <a href="#section-2026" class="inline-block">
-                    <img src="assets/images/FIFA-2026-World-Cup-Logo-768x953-removebg-preview.png" alt="FIFA" class="w-20 h-20 object-contain grayscale hover:grayscale-0 transition duration-300 cursor-pointer">
-                </a>
-
-                <!-- WWC 2027 (lien vers section 2027) -->
-                <a href="#section-2027" class="inline-block">
-                    <img src="assets/images/2025_FIFA_Futsal_Women_s_World_Cup_Logo.png" alt="WWC 2027" class="w-28 h-20 object-contain grayscale hover:grayscale-0 transition duration-300 cursor-pointer">
-                </a>
-
-                <!-- U20 WWC 2026 (lien vers section U20) -->
-                <a href="#section-u20" class="inline-block">
-                    <img src="assets/images/2025_FIFA_Arab_Cup.png" alt="U20 WWC 2026" class="w-28 h-20 object-contain grayscale hover:grayscale-0 transition duration-300 cursor-pointer">
-                </a>
-            </div>
+        <!-- Logo FIFA au centre -->
+        <div class="absolute left-[220px] transform -translate-x-1/2">
+            <img src="assets/images/logo_fifa.png" alt="FIFA" class="h-10 w-auto">
         </div>
+        
+        <!-- Navigation desktop (visible sur grands écrans) -->
+        <nav class="hidden lg:flex space-x-5 text-lg font-medium uppercase tracking-wide" style="margin-left: -110px;">
+            <a href="singles_matches/singles.html" class="hover:text-gray-200 transition">TOURNOIS ET ÉVÉNEMENTS</a>
+            <a href="singles_matches/singles.html" class="hover:text-gray-200 transition">MATCH CENTRE</a>
+            <a href="#section-container" class="hover:text-gray-200 transition">L'ACTU</a>
+            <a href="singles_matches/singles.html" class="hover:text-gray-200 transition">CLASSEMENTS</a>
+            <a href="fifa_hospitality/hospitality.html" class="hover:text-gray-200 transition font-semibold">BILLETS ET HOSPITALITÉ</a>
+            <a href="singles_matches/singles.html" class="hover:text-gray-200 transition">JOUER</a>
+            <a href="#" class="hover:text-gray-200 transition">INSIDE FIFA</a>
+        </nav>
+        
+        <!-- Icônes de droite : Loupe, Compte -->
+        <div class="flex items-center space-x-3" style="margin-right: 170px;">
+            <button class="p-2 rounded transition">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </button>
+            <a href="signin.html" class="p-2 rounded transition inline-flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+            </a>
+        </div>
+    </div>
+        </header>
+    </div>
 
-        <!-- Tournament Section: 2026 -->
-        <section id="section-2026" class="bg-tourney-2026 py-20 px-4 text-white relative z-30">
-            <div class="max-w-5xl mx-auto relative z-10">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl font-semibold tracking-tight mb-2">Coupe du Monde de la FIFA 2026™</h2>
-                    <p class="text-base text-gray-300">11 juin - 19 juillet 2026</p>
-                </div>
-
-                <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                    <!-- Card 1 -->
-                    <div class="bg-white rounded-2xl shadow-xl flex flex-col relative mt-6">
-                        <div class="absolute -top-6 left-8 w-14 h-14 bg-white rounded-xl shadow-md transform rotate-45 flex items-center justify-center z-10">
-                            <i data-lucide="ticket" class="transform -rotate-45 text-blue-600 w-6 h-6" stroke-width="1.5"></i>
-                        </div>
-                        <div class="bg-[#3451ff] rounded-t-2xl pt-12 pb-6 px-8">
-                            <h3 class="text-white text-2xl font-semibold tracking-tight">Billets</h3>
-                        </div>
-                        <div class="p-8 flex-1 flex flex-col justify-between">
-                            <p class="text-gray-700 text-base mb-8">Découvrez nos billets et commencez l'aventure Coupe du Monde de la FIFA 2026™ !</p>
-                            <button class="bg-[#3451ff] hover:bg-blue-700 text-white px-6 py-2.5 rounded-full text-base font-medium self-start transition-colors">En savoir plus</button>
-                        </div>
-                    </div>
-
-                    <!-- Card 2 -->
-                    <div class="bg-white rounded-2xl shadow-xl flex flex-col relative mt-6">
-                        <div class="absolute -top-6 left-8 w-14 h-14 bg-white rounded-xl shadow-md transform rotate-45 flex items-center justify-center z-10">
-                            <i data-lucide="gem" class="transform -rotate-45 text-indigo-700 w-6 h-6" stroke-width="1.5"></i>
-                        </div>
-                        <div class="bg-[#2d25c4] rounded-t-2xl pt-12 pb-6 px-8">
-                            <h3 class="text-white text-2xl font-semibold tracking-tight">Hospitalité</h3>
-                        </div>
-                        <div class="p-8 flex-1 flex flex-col justify-between">
-                            <p class="text-gray-700 text-base mb-8">Des offres pour des matches individuels, et plus encore, sont disponibles.</p>
-                            <button class="bg-[#2d25c4] hover:bg-indigo-800 text-white px-6 py-2.5 rounded-full text-base font-medium self-start transition-colors">Parcourir + acheter les packs</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Tournament Section: 2027 -->
-        <section id="section-2027" class="bg-tourney-2027 py-20 px-4 text-white relative z-30">
-            <div class="max-w-5xl mx-auto">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl font-semibold tracking-tight mb-2">Coupe du Monde Féminine de la FIFA 2027™</h2>
-                    <p class="text-base text-gray-300">24 juin - 25 juillet 2027</p>
-                </div>
-
-                <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                    <!-- Card 1 -->
-                    <div class="bg-white rounded-2xl shadow-xl flex flex-col relative mt-6 text-gray-900">
-                        <div class="absolute -top-6 left-8 w-14 h-14 bg-white rounded-xl shadow-md transform rotate-45 flex items-center justify-center z-10">
-                            <i data-lucide="ticket" class="transform -rotate-45 text-blue-700 w-6 h-6" stroke-width="1.5"></i>
-                        </div>
-                        <div class="bg-[#2111d4] rounded-t-2xl pt-12 pb-6 px-8">
-                            <h3 class="text-white text-2xl font-semibold tracking-tight">Billets</h3>
-                        </div>
-                        <div class="p-8 flex-1 flex flex-col justify-between">
-                            <p class="text-gray-700 text-base mb-8">Vivez l'excitation du meilleur football féminin, ne manquez pas ça !</p>
-                            <button class="bg-[#2111d4] hover:bg-blue-800 text-white px-6 py-2.5 rounded-full text-base font-medium self-start transition-colors">Inscrivez-vous dès maintenant</button>
-                        </div>
-                    </div>
-
-                    <!-- Card 2 -->
-                    <div class="bg-white rounded-2xl shadow-xl flex flex-col relative mt-6 text-gray-900">
-                        <div class="absolute -top-6 left-8 w-14 h-14 bg-white rounded-xl shadow-md transform rotate-45 flex items-center justify-center z-10">
-                            <i data-lucide="gem" class="transform -rotate-45 text-indigo-700 w-6 h-6" stroke-width="1.5"></i>
-                        </div>
-                        <div class="bg-[#2111d4] rounded-t-2xl pt-12 pb-6 px-8">
-                            <h3 class="text-white text-2xl font-semibold tracking-tight">Hospitalité</h3>
-                        </div>
-                        <div class="p-8 flex-1 flex flex-col justify-between">
-                            <p class="text-gray-700 text-base mb-8">Faites part de votre intérêt pour le programme hospitalité</p>
-                            <button class="bg-[#2111d4] hover:bg-blue-800 text-white px-6 py-2.5 rounded-full text-base font-medium self-start transition-colors">Inscrivez-vous dès maintenant</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Tournament Section: U20 -->
-        <section id="section-u20" class="bg-tourney-u20 py-20 px-4 text-white border-b-8 border-white relative z-30">
-            <div class="max-w-5xl mx-auto">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl font-semibold tracking-tight mb-2">Coupe du Monde Féminine U-20 de la FIFA, Pologne 2026™</h2>
-                    <p class="text-base text-gray-300">5 – 27 septembre 2026</p>
-                </div>
-
-                <div class="flex justify-center">
-                    <!-- Card -->
-                    <div class="bg-white rounded-2xl shadow-xl flex flex-col relative mt-6 text-gray-900 w-full max-w-md">
-                        <div class="absolute -top-6 left-1/2 -translate-x-1/2 w-14 h-14 bg-white rounded-xl shadow-md transform rotate-45 flex items-center justify-center z-10">
-                            <i data-lucide="ticket" class="transform -rotate-45 text-purple-700 w-6 h-6" stroke-width="1.5"></i>
-                        </div>
-                        <div class="bg-[#832685] rounded-t-2xl pt-12 pb-6 px-8 text-center">
-                            <h3 class="text-white text-2xl font-semibold tracking-tight">Billets</h3>
-                        </div>
-                        <div class="p-8 flex flex-col items-center text-center">
-                            <p class="text-gray-700 text-base mb-8">Venez voir émerger une nouvelle génération de stars</p>
-                            <button class="bg-[#832685] hover:bg-purple-800 text-white px-8 py-2.5 rounded-full text-base font-medium transition-colors">Manifestez votre intérêt</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- JavaScript pour désactiver le sticky quand U20 arrive -->
-        <script>
-            window.addEventListener('scroll', function() {
-                const stickyImagesContainer = document.getElementById('stickyImagesContainer');
-                const u20Section = document.getElementById('section-u20');
-                const headerHeight = 73; // Hauteur du header en pixels (ajustez selon votre header)
-                
-                if (stickyImagesContainer && u20Section) {
-                    const u20Rect = u20Section.getBoundingClientRect();
-                    
-                    // Si la section U20 touche le haut du viewport
-                    if (u20Rect.top <= headerHeight + 50) {
-                        stickyImagesContainer.classList.add('relative');
-                        stickyImagesContainer.classList.remove('sticky', 'top-[73px]', 'z-40', 'bg-white', 'pt-4', 'pb-8');
-                        stickyImagesContainer.style.position = 'relative';
-                    } else {
-                        stickyImagesContainer.classList.remove('relative');
-                        stickyImagesContainer.classList.add('sticky', 'top-[73px]', 'z-40', 'bg-white', 'pt-4', 'pb-8');
-                        stickyImagesContainer.style.position = '';
-                    }
+    <script>
+        // Toggle menu hamburger
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        if (hamburgerBtn && mobileMenu) {
+            hamburgerBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // Fermer en cliquant ailleurs
+            document.addEventListener('click', (e) => {
+                if (!hamburgerBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
+                    mobileMenu.classList.add('hidden');
                 }
             });
-        </script>
+        }
 
-                <!-- Latest Tournaments -->
-                <section id="latest" class="py-16 px-4 max-w-7xl mx-auto">
+        // Pour le menu accordéon
+    const boutiqueAccordionBtn = document.getElementById('boutiqueAccordionBtn');
+    const boutiqueSubMenuAccordion = document.getElementById('boutiqueSubMenuAccordion');
+    const boutiqueArrow = document.getElementById('boutiqueArrow');
+
+    if (boutiqueAccordionBtn && boutiqueSubMenuAccordion) {
+        boutiqueAccordionBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            boutiqueSubMenuAccordion.classList.toggle('hidden');
+            boutiqueArrow.style.transform = boutiqueSubMenuAccordion.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+        });
+    }
+    </script>
+    <main class="flex-grow">
+        <!-- Hero Section -->
+        <div class="relative">
+            <!-- Section unique avec fond blanc -->
+                <div style="background-color: #FFFFFF;">
+                    <div class="text-center" style="display: flex; justify-content: center;">
+                        <div style="padding: 40px 90px; display: inline-block;">
+                            <h1 class="text-4xl md:text-5xl font-semibold tracking-tight text-gray-900 mb-6 whitespace-nowrap">BILLETS ET HOSPITALITÉ</h1>
+                            <p class="text-base md:text-lg text-gray-600 font-medium whitespace-nowrap" style="color: #031238;">
+                                Bienvenue à l'endroit idéal pour obtenir toutes les informations de premier ordre dont vous avez besoin concernant les billets et l'hospitalité pour les tournois<br> FIFA les plus passionnants.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Deuxième partie : Images sticky -->
+                <div id="stickyImagesContainer" class="sticky top-[79px] z-40 border-b border-gray-100" style="background-color: #FFFFFF; display: flex; justify-content: center; margin-top: -20px;">
+                    <div style="padding: 20px 610px; display: inline-block;">
+                        <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-80">
+                            <a href="#section-2026" class="inline-block text-center transition-transform duration-300 hover:scale-105">
+                                <img src="assets/images/FIFA-2026-World-Cup-Logo-768x953-removebg-preview.png" alt="FIFA 2026" class="h-24 w-auto mt-2 grayscale hover:grayscale-0 transition-all duration-300">
+                            </a>
+
+                            <a href="#section-2027" class="inline-block text-center transition-transform duration-300 hover:scale-105">
+                                <img src="assets/images/2025_FIFA_Futsal_Women_s_World_Cup_Logo.png" alt="Women's 2027" class="h-24 w-auto mt-2 grayscale hover:grayscale-0 transition-all duration-300">
+                            </a>
+
+                            <a href="#section-u20" class="inline-block text-center transition-transform duration-300 hover:scale-105">
+                                <img src="assets/images/2025_FIFA_Arab_Cup.png" alt="U-20 Poland" class="h-24 w-auto mt-2 grayscale hover:grayscale-0 transition-all duration-300">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            <!-- Tournament Section: 2026 -->
+            <section id="section-2026" class="bg-tourney-2026 py-20 text-white relative z-30" style="padding-left: 40px; padding-right: 40px;">
+                <div class="max-w-5xl mx-auto relative z-10">
+                    <div class="text-center mb-16">
+                        <h2 class="text-3xl font-semibold tracking-tight mb-2">Coupe du Monde de la FIFA 2026™</h2>
+                        <p class="text-base text-gray-300">11 juin - 19 juillet 2026</p>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                        <!-- Card 1 -->
+                        <div class="bg-white rounded-2xl shadow-xl flex flex-col relative mt-6">
+                            <div class="absolute -top-6 left-8 w-14 h-14 bg-white rounded-xl shadow-md transform rotate-45 flex items-center justify-center z-10">
+                                <i data-lucide="ticket" class="transform -rotate-45 text-blue-600 w-6 h-6" stroke-width="1.5"></i>
+                            </div>
+                            <div class="bg-[#3451ff] rounded-t-2xl pt-12 pb-6 px-8">
+                                <h3 class="text-white text-2xl font-semibold tracking-tight">Billets</h3>
+                            </div>
+                            <div class="p-8 flex-1 flex flex-col justify-between">
+                                <p class="text-gray-700 text-base mb-8">Découvrez nos billets et commencez l'aventure Coupe du Monde de la FIFA 2026™ !</p>
+                                <button class="bg-[#3451ff] hover:bg-blue-700 text-white px-6 py-2.5 rounded-full text-base font-medium self-start transition-colors">En savoir plus</button>
+                            </div>
+                        </div>
+
+                        <!-- Card 2 -->
+                        <div class="bg-white rounded-2xl shadow-xl flex flex-col relative mt-6">
+                            <div class="absolute -top-6 left-8 w-14 h-14 bg-white rounded-xl shadow-md transform rotate-45 flex items-center justify-center z-10">
+                                <i data-lucide="gem" class="transform -rotate-45 text-indigo-700 w-6 h-6" stroke-width="1.5"></i>
+                            </div>
+                            <div class="bg-[#2d25c4] rounded-t-2xl pt-12 pb-6 px-8">
+                                <h3 class="text-white text-2xl font-semibold tracking-tight">Hospitalité</h3>
+                            </div>
+                            <div class="p-8 flex-1 flex flex-col justify-between">
+                                <p class="text-gray-700 text-base mb-8">Des offres pour des matches individuels, et plus encore, sont disponibles.</p>
+                                <button class="bg-[#2d25c4] hover:bg-indigo-800 text-white px-6 py-2.5 rounded-full text-base font-medium self-start transition-colors">Parcourir + acheter les packs</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tournament Section: 2027 -->
+            <section id="section-2027" class="bg-tourney-2027 py-20 text-white relative z-30" style="padding-left: 40px; padding-right: 40px;">
+                <div class="max-w-5xl mx-auto">
+                    <div class="text-center mb-16">
+                        <h2 class="text-3xl font-semibold tracking-tight mb-2">Coupe du Monde Féminine de la FIFA 2027™</h2>
+                        <p class="text-base text-gray-300">24 juin - 25 juillet 2027</p>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                        <div class="bg-white rounded-2xl shadow-xl flex flex-col relative mt-6 text-gray-900">
+                            <div class="absolute -top-6 left-8 w-14 h-14 bg-white rounded-xl shadow-md transform rotate-45 flex items-center justify-center z-10">
+                                <i data-lucide="ticket" class="transform -rotate-45 text-blue-700 w-6 h-6" stroke-width="1.5"></i>
+                            </div>
+                            <div class="bg-[#2111d4] rounded-t-2xl pt-12 pb-6 px-8">
+                                <h3 class="text-white text-2xl font-semibold tracking-tight">Billets</h3>
+                            </div>
+                            <div class="p-8 flex-1 flex flex-col justify-between">
+                                <p class="text-gray-700 text-base mb-8">Vivez l'excitation du meilleur football féminin, ne manquez pas ça !</p>
+                                <button class="bg-[#2111d4] hover:bg-blue-800 text-white px-6 py-2.5 rounded-full text-base font-medium self-start transition-colors">Inscrivez-vous dès maintenant</button>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-2xl shadow-xl flex flex-col relative mt-6 text-gray-900">
+                            <div class="absolute -top-6 left-8 w-14 h-14 bg-white rounded-xl shadow-md transform rotate-45 flex items-center justify-center z-10">
+                                <i data-lucide="gem" class="transform -rotate-45 text-indigo-700 w-6 h-6" stroke-width="1.5"></i>
+                            </div>
+                            <div class="bg-[#2111d4] rounded-t-2xl pt-12 pb-6 px-8">
+                                <h3 class="text-white text-2xl font-semibold tracking-tight">Hospitalité</h3>
+                            </div>
+                            <div class="p-8 flex-1 flex flex-col justify-between">
+                                <p class="text-gray-700 text-base mb-8">Faites part de votre intérêt pour le programme hospitalité</p>
+                                <button class="bg-[#2111d4] hover:bg-blue-800 text-white px-6 py-2.5 rounded-full text-base font-medium self-start transition-colors">Inscrivez-vous dès maintenant</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tournament Section: U20 -->
+            <section id="section-u20" class="bg-tourney-u20 py-20 text-white border-b-8 border-white relative z-30" style="padding-left: 40px; padding-right: 40px;">
+                <div class="max-w-5xl mx-auto">
+                    <div class="text-center mb-16">
+                        <h2 class="text-3xl font-semibold tracking-tight mb-2">Coupe du Monde Féminine U-20 de la FIFA, Pologne 2026™</h2>
+                        <p class="text-base text-gray-300">5 – 27 septembre 2026</p>
+                    </div>
+
+                    <div class="flex justify-center">
+                        <div class="bg-white rounded-2xl shadow-xl flex flex-col relative mt-6 text-gray-900 w-full max-w-md">
+                            <div class="absolute -top-6 left-1/2 -translate-x-1/2 w-14 h-14 bg-white rounded-xl shadow-md transform rotate-45 flex items-center justify-center z-10">
+                                <i data-lucide="ticket" class="transform -rotate-45 text-purple-700 w-6 h-6" stroke-width="1.5"></i>
+                            </div>
+                            <div class="bg-[#832685] rounded-t-2xl pt-12 pb-6 px-8 text-center">
+                                <h3 class="text-white text-2xl font-semibold tracking-tight">Billets</h3>
+                            </div>
+                            <div class="p-8 flex flex-col items-center text-center">
+                                <p class="text-gray-700 text-base mb-8">Venez voir émerger une nouvelle génération de stars</p>
+                                <button class="bg-[#832685] hover:bg-purple-800 text-white px-8 py-2.5 rounded-full text-base font-medium transition-colors">Manifestez votre intérêt</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <script>
+                window.addEventListener('scroll', function() {
+                    const stickyImagesContainer = document.getElementById('stickyImagesContainer');
+                    const u20Section = document.getElementById('section-u20');
+                    const headerHeight = 73;
+                    
+                    if (stickyImagesContainer && u20Section) {
+                        const u20Rect = u20Section.getBoundingClientRect();
+                        
+                        if (u20Rect.top <= headerHeight + 50) {
+                            stickyImagesContainer.classList.add('relative');
+                            stickyImagesContainer.classList.remove('sticky', 'top-[73px]', 'z-40', 'bg-white', 'pt-4', 'pb-8');
+                            stickyImagesContainer.style.position = 'relative';
+                        } else {
+                            stickyImagesContainer.classList.remove('relative');
+                            stickyImagesContainer.classList.add('sticky', 'top-[73px]', 'z-40', 'bg-white', 'pt-4', 'pb-8');
+                            stickyImagesContainer.style.position = '';
+                        }
+                    }
+                });
+            </script>
+    <!-- Latest Tournaments -->
+        <section id="latest" class="py-16 px-4 max-w-7xl mx-auto">
             <h2 class="text-2xl font-semibold tracking-tight mb-8">Les derniers tournois</h2>
             
             <!-- Conteneur du carrousel -->
@@ -607,274 +611,309 @@
                     </button>
                 </div>
             </div>
-                </section>
 
-                <!-- JavaScript pour le carrousel -->
-                <script>
-                    const slidesContainer = document.getElementById('tournamentSlides');
-                    const prevBtn = document.getElementById('prevSlide');
-                    const nextBtn = document.getElementById('nextSlide');
+            <script>
+            // Carrousel des tournois
+            document.addEventListener('DOMContentLoaded', function() {
+                const slidesContainer = document.getElementById('tournamentSlides');
+                const prevBtn = document.getElementById('prevSlide');
+                const nextBtn = document.getElementById('nextSlide');
+                
+                if (!slidesContainer || !prevBtn || !nextBtn) {
+                    console.log('Éléments du carrousel non trouvés');
+                    return;
+                }
+                
+                // Compter le nombre de slides (enfants directs de #tournamentSlides)
+                let slides = document.querySelectorAll('#tournamentSlides > div');
+                let totalSlides = slides.length;
+                let currentIndex = 0;
+                
+                function updateCarousel() {
+                    const slideWidth = 100; // 100% de la largeur du conteneur
+                    slidesContainer.style.transform = `translateX(-${currentIndex * slideWidth}%)`;
                     
-                    let currentIndex = 0;
-                    const totalSlides = document.querySelectorAll('#tournamentSlides > div').length;
-                    
-                    function updateCarousel() {
-                        const slideWidth = 100; // 100% de la largeur du conteneur
-                        slidesContainer.style.transform = `translateX(-${currentIndex * slideWidth}%)`;
+                    // Mettre à jour l'état des boutons (optionnel)
+                    if (currentIndex === 0) {
+                        prevBtn.style.opacity = '0.5';
+                        prevBtn.style.cursor = 'not-allowed';
+                    } else {
+                        prevBtn.style.opacity = '1';
+                        prevBtn.style.cursor = 'pointer';
                     }
                     
-                    if (prevBtn && nextBtn && slidesContainer) {
-                        prevBtn.addEventListener('click', () => {
-                            if (currentIndex > 0) {
-                                currentIndex--;
-                                updateCarousel();
-                            }
-                        });
-                        
-                        nextBtn.addEventListener('click', () => {
-                            if (currentIndex < totalSlides - 1) {
-                                currentIndex++;
-                                updateCarousel();
-                            }
-                        });
+                    if (currentIndex >= totalSlides - 1) {
+                        nextBtn.style.opacity = '0.5';
+                        nextBtn.style.cursor = 'not-allowed';
+                    } else {
+                        nextBtn.style.opacity = '1';
+                        nextBtn.style.cursor = 'pointer';
                     }
-                </script>
+                }
+                
+                // Événement clic sur flèche précédente
+                prevBtn.addEventListener('click', function() {
+                    if (currentIndex > 0) {
+                        currentIndex--;
+                        updateCarousel();
+                    }
+                });
+                
+                // Événement clic sur flèche suivante
+                nextBtn.addEventListener('click', function() {
+                    if (currentIndex < totalSlides - 1) {
+                        currentIndex++;
+                        updateCarousel();
+                    }
+                });
+                
+                // Initialisation
+                updateCarousel();
+                
+                // Gestion du redimensionnement de la fenêtre
+                window.addEventListener('resize', function() {
+                    // Réinitialiser la position si nécessaire
+                    slidesContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+                });
+            });
+        </script>
+        </section>
 
-                <!-- News Section -->
-                <section id="section-container" class="py-16 px-4 bg-white">
-                    <div class="max-w-7xl mx-auto">
-                        <div class="flex justify-between items-center mb-8 border-b border-gray-100 pb-4">
-                            <h2 class="text-2xl font-semibold tracking-tight text-gray-900">Actualités billets & hospitalité</h2>
-                            <a href="#" class="text-blue-600 font-medium text-sm flex items-center hover:underline">
-                                Afficher tout <i data-lucide="arrow-right" class="w-4 h-4 ml-1" stroke-width="1.5"></i>
-                            </a>
-                        </div>
+            <!-- News Section -->
+    <section id="section-container" class="py-16 px-4 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex justify-between items-center mb-8 border-b border-gray-100 pb-4">
+                <h2 class="text-2xl font-semibold tracking-tight text-gray-900">Actualités</h2>
+                <a href="#" class="text-blue-600 font-medium text-sm flex items-center hover:underline">
+                    Afficher tout <i data-lucide="arrow-right" class="w-4 h-4 ml-1" stroke-width="1.5"></i>
+                </a>
+            </div>
 
-                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-            <!-- Featured Article avec sticky -->
-            <div class="lg:col-span-7">
-                <div class="sticky top-[73px]" id="featuredArticle">
-                    <article class="group cursor-pointer">
-                        <div class="aspect-video mb-6 relative">
-                            <img src="assets/images/Actu_fifa.png" alt="Actu FIFA" class="w-full h-full object-cover">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                <!-- Featured Article avec sticky -->
+                <div class="lg:col-span-7">
+                    <div class="sticky top-[73px]" id="featuredArticle">
+                        <article class="group cursor-pointer">
+                            <div class="aspect-video mb-6 relative">
+                                <img src="assets/images/Actu_fifa.png" alt="Actu FIFA" class="w-full h-full object-cover">
+                            </div>
+                            <div class="space-y-3">
+                                <span class="text-blue-600 text-sm font-medium uppercase tracking-wide">FIFA World Cup 2026™</span>
+                                <h3 class="text-2xl font-semibold tracking-tight text-gray-900 group-hover:text-blue-600 transition-colors leading-snug">Mondial 2026 : ouverture du tirage de sélection aléatoire</h3>
+                                <p class="text-base text-gray-600 line-clamp-2">La période d'inscription pour la nouvelle phase de vente de billets en vue de la Coupe du Monde 2026, le tirage de sélection aléatoire, est ouverte jusqu'au mardi 13 janvier...</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- Article List -->
+                <div class="lg:col-span-5 flex flex-col space-y-6">
+                    <!-- List Item 1 -->
+                    <article class="flex gap-4 group cursor-pointer">
+                        <div class="w-36 h-28 flex-shrink-0 overflow-hidden relative">
+                            <img src="assets/images/actu-1.png" alt="FIFA World Cup 2026" class="w-full h-full object-cover">
                         </div>
-                        <div class="space-y-3">
+                        <div class="flex flex-col justify-center space-y-1">
                             <span class="text-blue-600 text-sm font-medium uppercase tracking-wide">FIFA World Cup 2026™</span>
-                            <h3 class="text-2xl font-semibold tracking-tight text-gray-900 group-hover:text-blue-600 transition-colors leading-snug">Mondial 2026 : ouverture du tirage de sélection aléatoire</h3>
-                            <p class="text-base text-gray-600 line-clamp-2">La période d'inscription pour la nouvelle phase de vente de billets en vue de la Coupe du Monde 2026, le tirage de sélection aléatoire, est ouverte jusqu'au mardi 13 janvier...</p>
+                            <h4 class="text-base font-semibold text-gray-900 leading-snug">Les formules hospitalité pour le Mondial 2026 désormais disponibles dans les trois pays hôtes</h4>
+                        </div>
+                    </article>
+
+                    <!-- List Item 2 -->
+                    <article class="flex gap-4 group cursor-pointer">
+                        <div class="w-36 h-28 flex-shrink-0 overflow-hidden relative">
+                            <img src="assets/images/actu-2.png" alt="Coupe du Monde des Clubs 2025" class="w-full h-full object-cover">
+                        </div>
+                        <div class="flex flex-col justify-center space-y-1">
+                            <span class="text-blue-600 text-sm font-medium uppercase tracking-wide">Coupe du Monde des Clubs 2025</span>
+                            <h4 class="text-base font-semibold text-gray-900 leading-snug">La Coupe du Monde des Clubs 2025 approche de la barre des 1,5 million de billets vendus</h4>
+                        </div>
+                    </article>
+
+                    <!-- List Item 3 -->
+                    <article class="flex gap-4 group cursor-pointer">
+                        <div class="w-36 h-28 flex-shrink-0 overflow-hidden relative">
+                            <img src="assets/images/actu-3.png" alt="FIFA World Cup 2026" class="w-full h-full object-cover">
+                        </div>
+                        <div class="flex flex-col justify-center space-y-1">
+                            <span class="text-blue-600 text-sm font-medium uppercase tracking-wide">FIFA World Cup 2026™</span>
+                            <h4 class="text-base font-semibold text-gray-900 leading-snug">Mise en vente d'un nombre limité de formules hospitalité pour le Mondial 2026 aux États-Unis</h4>
+                        </div>
+                    </article>
+
+                    <!-- List Item 4 -->
+                    <article class="flex gap-4 group cursor-pointer">
+                        <div class="w-36 h-28 flex-shrink-0 overflow-hidden relative">
+                            <img src="assets/images/actu-4.png" alt="Coupe du Monde des Clubs 2025" class="w-full h-full object-cover">
+                        </div>
+                        <div class="flex flex-col justify-center space-y-1">
+                            <span class="text-blue-600 text-sm font-medium uppercase tracking-wide">Coupe du Monde des Clubs 2025</span>
+                            <h4 class="text-base font-semibold text-gray-900 leading-snug">Coupe du Monde des Clubs de la FIFA 2025™ : nouvelle phase de vente de billets</h4>
+                        </div>
+                    </article>
+
+                    <!-- List Item 5 -->
+                    <article class="flex gap-4 group cursor-pointer">
+                        <div class="w-36 h-28 flex-shrink-0 overflow-hidden relative">
+                            <img src="assets/images/actu-5.png" alt="Coupe du Monde des Clubs 2025" class="w-full h-full object-cover">
+                        </div>
+                        <div class="flex flex-col justify-center space-y-1">
+                            <span class="text-blue-600 text-sm font-medium uppercase tracking-wide">Coupe du Monde des Clubs 2025</span>
+                            <h4 class="text-base font-semibold text-gray-900 leading-snug">Coupe du Monde des Clubs de la FIFA 2025™ : formules de billets</h4>
+                        </div>
+                    </article>
+
+                    <!-- List Item 6 -->
+                    <article class="flex gap-4 group cursor-pointer">
+                        <div class="w-36 h-28 flex-shrink-0 overflow-hidden relative">
+                            <img src="assets/images/actu-6.png" alt="Coupe du Monde des Clubs 2025" class="w-full h-full object-cover">
+                        </div>
+                        <div class="flex flex-col justify-center space-y-1">
+                            <span class="text-blue-600 text-sm font-medium uppercase tracking-wide">Coupe du Monde des Clubs 2025</span>
+                            <h4 class="text-base font-semibold text-gray-900 leading-snug">Coupe du Monde des Clubs de la FIFA 2025™ : formules de billets</h4>
+                        </div>
+                    </article>
+
+                    <!-- List Item 7 -->
+                    <article class="flex gap-4 group cursor-pointer">
+                        <div class="w-36 h-28 flex-shrink-0 overflow-hidden relative">
+                            <img src="assets/images/actu-7.png" alt="Coupe du Monde des Clubs 2025" class="w-full h-full object-cover">
+                        </div>
+                        <div class="flex flex-col justify-center space-y-1">
+                            <span class="text-blue-600 text-sm font-medium uppercase tracking-wide">Coupe du Monde des Clubs 2025</span>
+                            <h4 class="text-base font-semibold text-gray-900 leading-snug">Coupe du Monde des Clubs de la FIFA 2025™ : formules de billets</h4>
+                        </div>
+                    </article>
+
+                    <!-- List Item 8 -->
+                    <article class="flex gap-4 group cursor-pointer">
+                        <div class="w-36 h-28 flex-shrink-0 overflow-hidden relative">
+                            <img src="assets/images/actu-8.png" alt="Coupe du Monde des Clubs 2025" class="w-full h-full object-cover">
+                        </div>
+                        <div class="flex flex-col justify-center space-y-1">
+                            <span class="text-blue-600 text-sm font-medium uppercase tracking-wide">Coupe du Monde des Clubs 2025</span>
+                            <h4 class="text-base font-semibold text-gray-900 leading-snug">Coupe du Monde des Clubs de la FIFA 2025™ : formules de billets</h4>
+                        </div>
+                    </article>
+
+                    <!-- List Item 9 -->
+                    <article id="lastStickyItem" class="flex gap-4 group cursor-pointer">
+                        <div class="w-36 h-28 flex-shrink-0 overflow-hidden relative">
+                            <img src="assets/images/actu-9.png" alt="Coupe du Monde des Clubs 2025" class="w-full h-full object-cover">
+                        </div>
+                        <div class="flex flex-col justify-center space-y-1">
+                            <span class="text-blue-600 text-sm font-medium uppercase tracking-wide">Coupe du Monde des Clubs 2025</span>
+                            <h4 class="text-base font-semibold text-gray-900 leading-snug">Coupe du Monde des Clubs de la FIFA 2025™ : formules de billets</h4>
                         </div>
                     </article>
                 </div>
             </div>
 
-            <!-- Article List -->
-            <div class="lg:col-span-5 flex flex-col space-y-6">
-                <!-- List Item 1 -->
-                <article class="flex gap-4 group cursor-pointer">
-                    <div class="w-36 h-28 flex-shrink-0 overflow-hidden relative">
-                        <img src="assets/images/actu-1.png" alt="FIFA World Cup 2026" class="w-full h-full object-cover">
-                    </div>
-                    <div class="flex flex-col justify-center space-y-1">
-                        <span class="text-blue-600 text-sm font-medium uppercase tracking-wide">FIFA World Cup 2026™</span>
-                        <h4 class="text-base font-semibold text-gray-900 leading-snug">Les formules hospitalité pour le Mondial 2026 désormais disponibles dans les trois pays hôtes</h4>
-                    </div>
-                </article>
-
-                <!-- List Item 2 -->
-                <article class="flex gap-4 group cursor-pointer">
-                    <div class="w-36 h-28 flex-shrink-0 overflow-hidden relative">
-                        <img src="assets/images/actu-2.png" alt="Coupe du Monde des Clubs 2025" class="w-full h-full object-cover">
-                    </div>
-                    <div class="flex flex-col justify-center space-y-1">
-                        <span class="text-blue-600 text-sm font-medium uppercase tracking-wide">Coupe du Monde des Clubs 2025</span>
-                        <h4 class="text-base font-semibold text-gray-900 leading-snug">La Coupe du Monde des Clubs 2025 approche de la barre des 1,5 million de billets vendus</h4>
-                    </div>
-                </article>
-
-                <!-- List Item 3 -->
-                <article class="flex gap-4 group cursor-pointer">
-                    <div class="w-36 h-28 flex-shrink-0 overflow-hidden relative">
-                        <img src="assets/images/actu-3.png" alt="FIFA World Cup 2026" class="w-full h-full object-cover">
-                    </div>
-                    <div class="flex flex-col justify-center space-y-1">
-                        <span class="text-blue-600 text-sm font-medium uppercase tracking-wide">FIFA World Cup 2026™</span>
-                        <h4 class="text-base font-semibold text-gray-900 leading-snug">Mise en vente d'un nombre limité de formules hospitalité pour le Mondial 2026 aux États-Unis</h4>
-                    </div>
-                </article>
-
-                <!-- List Item 4 -->
-                <article class="flex gap-4 group cursor-pointer">
-                    <div class="w-36 h-28 flex-shrink-0 overflow-hidden relative">
-                        <img src="assets/images/actu-4.png" alt="Coupe du Monde des Clubs 2025" class="w-full h-full object-cover">
-                    </div>
-                    <div class="flex flex-col justify-center space-y-1">
-                        <span class="text-blue-600 text-sm font-medium uppercase tracking-wide">Coupe du Monde des Clubs 2025</span>
-                        <h4 class="text-base font-semibold text-gray-900 leading-snug">Coupe du Monde des Clubs de la FIFA 2025™ : nouvelle phase de vente de billets</h4>
-                    </div>
-                </article>
-
-                <!-- List Item 5 -->
-                <article class="flex gap-4 group cursor-pointer">
-                    <div class="w-36 h-28 flex-shrink-0 overflow-hidden relative">
-                        <img src="assets/images/actu-5.png" alt="Coupe du Monde des Clubs 2025" class="w-full h-full object-cover">
-                    </div>
-                    <div class="flex flex-col justify-center space-y-1">
-                        <span class="text-blue-600 text-sm font-medium uppercase tracking-wide">Coupe du Monde des Clubs 2025</span>
-                        <h4 class="text-base font-semibold text-gray-900 leading-snug">Coupe du Monde des Clubs de la FIFA 2025™ : formules de billets</h4>
-                    </div>
-                </article>
-
-                <!-- List Item 6 -->
-                <article class="flex gap-4 group cursor-pointer">
-                    <div class="w-36 h-28 flex-shrink-0 overflow-hidden relative">
-                        <img src="assets/images/actu-6.png" alt="Coupe du Monde des Clubs 2025" class="w-full h-full object-cover">
-                    </div>
-                    <div class="flex flex-col justify-center space-y-1">
-                        <span class="text-blue-600 text-sm font-medium uppercase tracking-wide">Coupe du Monde des Clubs 2025</span>
-                        <h4 class="text-base font-semibold text-gray-900 leading-snug">Coupe du Monde des Clubs de la FIFA 2025™ : formules de billets</h4>
-                    </div>
-                </article>
-
-                <!-- List Item 7 -->
-                <article class="flex gap-4 group cursor-pointer">
-                    <div class="w-36 h-28 flex-shrink-0 overflow-hidden relative">
-                        <img src="assets/images/actu-7.png" alt="Coupe du Monde des Clubs 2025" class="w-full h-full object-cover">
-                    </div>
-                    <div class="flex flex-col justify-center space-y-1">
-                        <span class="text-blue-600 text-sm font-medium uppercase tracking-wide">Coupe du Monde des Clubs 2025</span>
-                        <h4 class="text-base font-semibold text-gray-900 leading-snug">Coupe du Monde des Clubs de la FIFA 2025™ : formules de billets</h4>
-                    </div>
-                </article>
-
-                <!-- List Item 8 -->
-                <article class="flex gap-4 group cursor-pointer">
-                    <div class="w-36 h-28 flex-shrink-0 overflow-hidden relative">
-                        <img src="assets/images/actu-8.png" alt="Coupe du Monde des Clubs 2025" class="w-full h-full object-cover">
-                    </div>
-                    <div class="flex flex-col justify-center space-y-1">
-                        <span class="text-blue-600 text-sm font-medium uppercase tracking-wide">Coupe du Monde des Clubs 2025</span>
-                        <h4 class="text-base font-semibold text-gray-900 leading-snug">Coupe du Monde des Clubs de la FIFA 2025™ : formules de billets</h4>
-                    </div>
-                </article>
-
-                <!-- List Item 9 -->
-                <article id="lastStickyItem" class="flex gap-4 group cursor-pointer">
-                    <div class="w-36 h-28 flex-shrink-0 overflow-hidden relative">
-                        <img src="assets/images/actu-9.png" alt="Coupe du Monde des Clubs 2025" class="w-full h-full object-cover">
-                    </div>
-                    <div class="flex flex-col justify-center space-y-1">
-                        <span class="text-blue-600 text-sm font-medium uppercase tracking-wide">Coupe du Monde des Clubs 2025</span>
-                        <h4 class="text-base font-semibold text-gray-900 leading-snug">Coupe du Monde des Clubs de la FIFA 2025™ : formules de billets</h4>
-                    </div>
-                </article>
-            </div>
-        </div>
-
-        <!-- JavaScript pour désactiver le sticky quand l'item 9 apparaît -->
-        <script>
-            window.addEventListener('scroll', function() {
-                const featuredArticle = document.getElementById('featuredArticle');
-                const lastStickyItem = document.getElementById('lastStickyItem');
-                const headerHeight = 73; // Hauteur du header
-                
-                if (featuredArticle && lastStickyItem) {
-                    const lastItemRect = lastStickyItem.getBoundingClientRect();
+            <!-- JavaScript pour désactiver le sticky quand l'item 9 apparaît -->
+            <script>
+                window.addEventListener('scroll', function() {
+                    const featuredArticle = document.getElementById('featuredArticle');
+                    const lastStickyItem = document.getElementById('lastStickyItem');
+                    const headerHeight = 73;
                     
-                    // Si le 9ème item touche le haut ou dépasse la section sticky
-                    if (lastItemRect.top <= headerHeight + 50) {
-                        featuredArticle.classList.add('relative');
-                        featuredArticle.classList.remove('sticky', 'top-[73px]');
-                        featuredArticle.style.position = 'relative';
-                    } else {
-                        featuredArticle.classList.remove('relative');
-                        featuredArticle.classList.add('sticky', 'top-[73px]');
-                        featuredArticle.style.position = '';
+                    if (featuredArticle && lastStickyItem) {
+                        const lastItemRect = lastStickyItem.getBoundingClientRect();
+                        
+                        if (lastItemRect.top <= headerHeight + 50) {
+                            featuredArticle.classList.add('relative');
+                            featuredArticle.classList.remove('sticky', 'top-[73px]');
+                            featuredArticle.style.position = 'relative';
+                        } else {
+                            featuredArticle.classList.remove('relative');
+                            featuredArticle.classList.add('sticky', 'top-[73px]');
+                            featuredArticle.style.position = '';
+                        }
                     }
-                }
-            });
-        </script>
-            </div>
-        </section>
+                });
+            </script>
+        </div>
+    </section>
+        </div>
     </main>
-
     <!-- Footer -->
     <footer class="bg-[#045694] text-white pt-8">
-    <div class="px-4">
-        <!-- Top Footer Area -->
-        <div class="flex flex-col md:flex-row justify-between items-center md:items-center gap-4 md:gap-6 pb-6">
-            <!-- Logo FIFA tout à gauche -->
-            <div class="flex items-center">
-                <img src="assets/images/logo_fifa.png" alt="FIFA" class="h-12 w-auto">
-            </div>
-            
-            <!-- Réseaux sociaux -->
-            <div class="flex space-x-5">
-                <a href="#" class="hover:text-gray-300 transition-colors text-xl">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a href="#" class="hover:text-gray-300 transition-colors text-xl">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="#" class="hover:text-gray-300 transition-colors text-xl">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="#" class="hover:text-gray-300 transition-colors text-xl">
-                    <i class="fab fa-youtube"></i>
-                </a>
-                <a href="#" class="hover:text-gray-300 transition-colors text-xl">
-                    <i class="fab fa-tiktok"></i>
-                </a>
-            </div>
-            
-            <!-- Texte + boutons Apple et Play Store sur la même ligne -->
-            <div class="flex items-center gap-3">
-                <span class="text-sm font-medium whitespace-nowrap">Télécharger dès maintenant FIFA pour plus de contenus</span>
-                <div class="flex space-x-2">
-                    <a href="#" class="hover:opacity-80 transition-opacity">
-                        <img src="assets/icones/play store.png" alt="Google Play" class="h-10 w-auto">
+        <div class="px-4">
+            <!-- Top Footer Area -->
+            <div class="flex flex-col md:flex-row justify-between items-center md:items-center gap-4 md:gap-6 pb-6">
+                <!-- Logo FIFA tout à gauche -->
+                <div class="flex items-center">
+                    <img src="assets/images/logo_fifa.png" alt="FIFA" class="h-12 w-auto">
+                </div>
+                
+                <!-- Réseaux sociaux -->
+                <div class="flex space-x-5">
+                    <a href="#" class="hover:text-gray-300 transition-colors text-xl">
+                        <i class="fab fa-twitter"></i>
                     </a>
-                    <a href="#" class="hover:opacity-80 transition-opacity">
-                        <img src="assets/icones/itunes-app-store-apple-logo-portable-network-graphics-png-favpng-UKEpRYur5ivzhqLqVM99XbTAq-removebg-preview.png" alt="App Store" class="h-10 w-auto">
+                    <a href="#" class="hover:text-gray-300 transition-colors text-xl">
+                        <i class="fab fa-facebook-f"></i>
                     </a>
+                    <a href="#" class="hover:text-gray-300 transition-colors text-xl">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="hover:text-gray-300 transition-colors text-xl">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="#" class="hover:text-gray-300 transition-colors text-xl">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                </div>
+                
+                <!-- Texte + boutons Apple et Play Store sur la même ligne -->
+                <div class="flex items-center gap-3">
+                    <span class="text-sm font-medium whitespace-nowrap">Télécharger dès maintenant FIFA pour plus de contenus</span>
+                    <div class="flex space-x-2">
+                        <a href="#" class="hover:opacity-80 transition-opacity">
+                            <img src="assets/icones/play store.png" alt="Google Play" class="h-10 w-auto">
+                        </a>
+                        <a href="#" class="hover:opacity-80 transition-opacity">
+                            <img src="assets/icones/itunes-app-store-apple-logo-portable-network-graphics-png-favpng-UKEpRYur5ivzhqLqVM99XbTAq-removebg-preview.png" alt="App Store" class="h-10 w-auto">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Première ligne horizontale -->
+            <div class="border-t border-white/30 my-6"></div>
+
+            <!-- Partners Area - Titre centré et 7 images alignées -->
+            <div class="mb-6">
+                <h4 class="text-xs uppercase tracking-widest text-center text-blue-200 mb-5 font-semibold">FIFA PARTNERS</h4>
+                <div class="flex flex-wrap justify-center items-center gap-8 md:gap-10 opacity-90">
+                    <img src="assets/icones/adidas_white-removebg-preview.png" alt="adidas" class="h-10 w-auto object-contain">
+                    <img src="assets/icones/coca_Cola.png" alt="Coca-Cola" class="h-16 w-auto object-contain">
+                    <img src="assets/icones/Aramco-removebg-preview.png" alt="aramco" class="h-16 w-auto object-contain filter-white">
+                    <img src="assets/icones/Leonvo-removebg-preview.png" alt="Lenovo" class="h-8 w-auto object-contain">
+                    <img src="assets/icones/Quatar_airways-removebg-preview.png" alt="QATAR AIRWAYS" class="h-8 w-auto object-contain">
+                    <img src="assets/icones/Hyundai-removebg-preview.png" alt="Hyundai" class="h-16 w-auto object-contain">
+                    <img src="assets/icones/Visa-removebg-preview.png" alt="VISA" class="h-8 w-auto object-contain">
+                </div>
+            </div>
+
+            <!-- Deuxième ligne horizontale -->
+            <div class="border-t border-white/30 my-6"></div>
+
+            <!-- Bottom Bar - Texte à gauche et copyright à droite -->
+            <div class="py-5 text-sm">
+                <div class="flex flex-col md:flex-row justify-between items-center text-gray-300 gap-3">
+                    <div class="flex space-x-6">
+                        <a href="#" class="hover:text-white transition-colors">POLITIQUE DE CONFIDENTIALITÉ</a>
+                        <a href="#" class="hover:text-white transition-colors">CONDITIONS D'UTILISATION</a>
+                    </div>
+                    <p class="text-xs">Copyright © 1994 - 2026 FIFA. Tous droits réservés.</p>
                 </div>
             </div>
         </div>
-
-        <!-- Première ligne horizontale -->
-        <div class="border-t border-white/30 my-6"></div>
-
-        <!-- Partners Area - Titre centré et 7 images alignées -->
-        <div class="mb-6">
-            <h4 class="text-xs uppercase tracking-widest text-center text-blue-200 mb-5 font-semibold">FIFA PARTNERS</h4>
-            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-10 opacity-90">
-                <img src="assets/icones/adidas_white-removebg-preview.png" alt="adidas" class="h-10 w-auto object-contain">
-                <img src="assets/icones/coca_Cola.png" alt="Coca-Cola" class="h-16 w-auto object-contain">
-                <img src="assets/icones/Aramco-removebg-preview.png" alt="aramco" class="h-16 w-auto object-contain filter-white">
-                <img src="assets/icones/Leonvo-removebg-preview.png" alt="Lenovo" class="h-8 w-auto object-contain">
-                <img src="assets/icones/Quatar_airways-removebg-preview.png" alt="QATAR AIRWAYS" class="h-8 w-auto object-contain">
-                <img src="assets/icones/Hyundai-removebg-preview.png" alt="Hyundai" class="h-16 w-auto object-contain">
-                <img src="assets/icones/Visa-removebg-preview.png" alt="VISA" class="h-8 w-auto object-contain">
-            </div>
-        </div>
-
-        <!-- Deuxième ligne horizontale -->
-        <div class="border-t border-white/30 my-6"></div>
-
-        <!-- Bottom Bar - Texte à gauche et copyright à droite -->
-        <div class="py-5 text-sm">
-            <div class="flex flex-col md:flex-row justify-between items-center text-gray-300 gap-3">
-                <div class="flex space-x-6">
-                    <a href="#" class="hover:text-white transition-colors">POLITIQUE DE CONFIDENTIALITÉ</a>
-                    <a href="#" class="hover:text-white transition-colors">CONDITIONS D'UTILISATION</a>
-                </div>
-                <p class="text-xs">Copyright © 1994 - 2026 FIFA. Tous droits réservés.</p>
-            </div>
-        </div>
-    </div>
-</footer>
+    </footer>
 
     <script>
         lucide.createIcons();
     </script>
-</body>
-</html>
+
+    </body>
+    </html>

@@ -49,14 +49,14 @@
             border-radius: 4px;
             background-color: white;
             font-size: 14px;
-            margin-left: -110px;
+            margin-left: -330px;
         }
 
         .main-nav {
             display: flex;
-            justify-content: center;
+            justify-content: flex-start;
             gap: 25px;
-            margin-left: 0;
+            margin-left: -280px;
         }
 
         .main-nav a {
@@ -64,6 +64,19 @@
             color: #373A3E;
             font-size: 17px;
             transition: color 0.3s;
+        }
+
+        .main-nav a[href="#Schedule"] {
+            border: 1px solid #595c61;
+            padding: 5px 10px;
+            border-radius: 4px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .main-nav a[href="#Schedule"] i {
+            font-size: 14px;
         }
 
         .user-section {
@@ -121,146 +134,446 @@
             font-size: 16px;
         }
 
-        /* Section 1 */
-        .section-1 {
-            padding: 60px 30px;
-            color: white;
-            position: relative;
-            min-height: 100vh;
-        }
+      /* Section 1 */
+    .section-1 {
+        padding: 60px 30px;
+        color: white;
+        position: relative;
+        min-height: 100vh;
+    }
 
-        .section-1::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 70%;
-            height: 100%;
-            background: #05090E;
-            z-index: -1;
-            border-radius: 0 190px 290px 0;
+    .section-1::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #121049;
+        z-index: -1;
+        border-radius: 0px 0px 0px 190px;
+    }
+
+    .section-1 .content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        max-width: 900px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .section-1 .text-content {
+        width: 100%;
+    }
+
+    /* Compte à rebours */
+    .countdown-container {
+        margin-bottom: 30px;
+    }
+
+    .countdown-timer {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        flex-wrap: wrap;
+    }
+
+    .countdown-block {
+        text-align: center;
+        min-width: 80px;
+    }
+
+    .countdown-number {
+        display: block;
+        font-size: 48px;
+        font-weight: 700;
+        background: rgba(255, 255, 255, 0.15);
+        padding: 15px 10px;
+        border-radius: 12px;
+        backdrop-filter: blur(5px);
+        font-family: monospace;
+        letter-spacing: 2px;
+    }
+
+    .countdown-label {
+        display: block;
+        font-size: 12px;
+        text-transform: uppercase;
+        margin-top: 8px;
+        opacity: 0.8;
+        letter-spacing: 1px;
+    }
+
+    .section-1 h4 {
+        font-size: 30px;
+        margin-bottom: 5px;
+        color: #ffffff;
+        font-weight: 500;
+    }
+
+    .section-1 h1 {
+        font-size: 55px;
+        margin-bottom: 20px;
+        color: #ffffff;
+    }
+
+    .section-1 p {
+        margin-bottom: 30px;
+        font-size: 17px;
+        opacity: 0.9;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+   .buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 30px;
+    }
+
+    .btn-primary {
+        background-color: #0598B8;
+        color: black;
+        border: none;
+        padding: 15px 30px;
+        border-radius: 0 30px 30px 30px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+        transition: all 0.3s;
+        box-shadow: 0 4px 15px rgba(108, 115, 117, 0.3);
+    }
+
+    .btn-primary:hover {
+        background-color: #D0CFDA;
+        transform: none;
+        box-shadow: none;
+    }
+
+    .btn-secondary {
+        background-color: transparent;
+        color: white;
+        border: 0.5px solid #037B89;
+        padding: 290px 60px;
+        border-radius: 0 30px 30px 30px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 600;
+        transition: all 0.3s;
+    }
+
+    .btn-secondary:hover {
+        background-color: #D0CFDA;
+        transform: none;
+    }
+
+    /* Images */
+.corner-image {
+    position: absolute;
+    z-index: 10;
+}
+
+/* Image supérieure gauche - COLLÉE À LA NAVBAR */
+.top-left-1 {
+    top: 0px;
+    left: 80px;
+    width: 180px;
+    height: auto;
+}
+
+/* Image supérieure droite - COLLÉE À LA NAVBAR */
+.top-right-1 {
+    top: 0;
+    right: 80px;
+    width: 215px;
+    height: auto;
+}
+
+/* Deuxième ligne - image gauche */
+.top-left-2 {
+    top: 250px;
+    left: 210px;
+    width: 190px;
+    height: auto;
+}
+
+/* Deuxième ligne - image droite */
+.top-right-2 {
+    top: 180px;
+    right: 190px;
+    width: 170px;
+    height: auto;
+}
+
+/* Version responsive */
+@media (max-width: 768px) {
+    .top-left, .top-right {
+        width: 60px;
+    }
+    
+    .top-left-2, .top-right-2 {
+        width: 40px;
+        top: 70px;
+    }
+}
+
+    @media (max-width: 480px) {
+        .corner-image {
+            width: 35px;
+        }
+    }
+    @media (max-width: 480px) {
+        .corner-image {
+            width: 35px;
+            top: 5px;
         }
         
-        .section-1 .content {
-            display: flex;
-            gap: 50px;
-            max-width: 1200px;
-            margin: 0 auto;
-            align-items: center;
+        .corner-left {
+            left: 5px;
         }
-
-        .section-1 .text-content {
-            flex: 1;
+        
+        .corner-right {
+            right: 5px;
         }
+    }
 
-
-        .section-1 h1 {
-            font-size: 55px;
-            margin-bottom: 0px;
-            color: #ffffff;
+    /* Responsive compte à rebours */
+    @media (max-width: 600px) {
+        .countdown-timer {
+            gap: 15px;
         }
-
-        .section-1 h2 {
-            font-size: 30px;
-            margin-bottom: 1px;
-            line-height: 0.2;
+        
+        .countdown-block {
+            min-width: 60px;
         }
-
-        .section-1 p {
-            margin-bottom: 25px;
-            font-size: 17px;
-            opacity: 0.9;
+        
+        .countdown-number {
+            font-size: 28px;
+            padding: 10px 5px;
         }
-
-        .buttons {
-            display: flex;
-            gap: 20px;
-            margin-bottom: 30px;
+        
+        .countdown-label {
+            font-size: 10px;
         }
+    }
 
-        .btn-primary {
-            background-color: #037B89;
-            color: black;
-            border: none;
-            padding: 15px 30px;
-            border-radius: 0 30px 30px 30px;
-            cursor: pointer;
-            font-size: 16px;
-            font-weight: 600;
-            transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(76, 201, 240, 0.3);
-        }
+       /* Carrousel Villes */
+    .cities-carousel-container {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 60px;
+        position: relative;
+        width: 100%;
+        max-width: 1300px;  /* Changé de 1000px à 100% */
+        padding: 0 90px;  /* Ajout d'un petit padding pour les bords */
+    }
 
-        .btn-primary:hover {
-            background-color: #037B89;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(76, 201, 240, 0.4);
-        }
+    /* Conteneur des flèches au-dessus à droite */
+    .carousel-nav-container {
+        display: flex;
+        gap: 4px;
+        justify-content: flex-end;
+        margin-bottom: 5px;
+        max-width: 1400px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+    }
 
-        .btn-secondary {
-            background-color: transparent;
-            color: white;
-            border: 2px solid #037B89;
-            padding: 15px 30px;
-            border-radius: 0 30px 30px 30px;
-            cursor: pointer;
-            font-size: 16px;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
+    .cities-carousel-wrapper {
+        overflow: hidden;
+        width: 100%;
+        position: relative;
+    }
 
-        .btn-secondary:hover {
-            background-color: rgba(76, 201, 240, 0.1);
-            transform: translateY(-2px);
-        }
+    .cities-carousel {
+        display: flex;
+        gap: 20px;
+        transition: transform 0.4s ease-in-out;
+        cursor: grab;
+    }
 
-        .visual-guide {
+    .cities-carousel:active {
+        cursor: grabbing;
+    }
+
+    .city-item {
+        flex-shrink: 0;
+        padding: 24px 24px;  /* Augmenté : 10px -> 12px vertical, 20px -> 24px horizontal */
+        border-radius: 20px;
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        white-space: nowrap;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        border: none;
+        text-align: center;
+    }
+
+    .city-item:hover {
+        transform: scale(1.05);
+        filter: brightness(0.95);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Pour que le carrousel prenne toute la largeur */
+    .cities-carousel-wrapper {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .cities-carousel {
+        width: 100%;
+    }
+
+    /* Boutons de navigation */
+    .carousel-nav {
+        background: rgba(255, 255, 255, 0.2);
+        border: none;
+        color: white;
+        font-size: 20px;
+        font-weight: bold;
+        width: 40px;  /* Légèrement plus grand */
+        height: 40px;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .carousel-nav:hover {
+        background: #0598B8;
+        transform: scale(1.05);
+    }
+
+    /* Indicateurs (dots) */
+    .carousel-dots {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 20px;
+    }
+
+    .dot {
+        width: 8px;
+        height: 8px;
+        background: rgba(255, 255, 255, 0.4);
+        border-radius: 50%;
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+
+    .dot.active {
+        background: #0598B8;
+        width: 25px;
+        border-radius: 10px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .cities-carousel-container {
+            gap: 10px;
             margin-top: 40px;
-            padding: 20px;
-            background: white;
-            border-radius: 10px;
+            padding: 0 15px;
         }
-
-        .visual-guide div {
-            width: 200px;
-            height: 50px;
-            background: #037B89;
-            margin: 10px 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
+        
+        .city-item {
+            padding: 10px 20px;  /* Padding adapté au mobile */
+            font-size: 12px;
+            border-radius: 16px;
         }
-
-        .normal { 
-            border-radius: 30px; }
-        .asymmetric { 
-            border-radius: 0 30px 30px 30px; }
-
-
-
-        .section-1 .video-content {
-            flex: 1;
-            display: flex;
-            justify-content: center;
+        
+        .carousel-nav {
+            width: 36px;
+            height: 36px;
+            font-size: 16px;
         }
-
-        .video-placeholder {
-            width: 100%;
-            max-width: 500px;
-            height: 300px;
-            background: linear-gradient(45deg, #4cc9f0, #4361ee);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            right: -99500px;
+        
+        .cities-carousel {
+            gap: 12px;
         }
+        
+        .carousel-nav-container {
+            gap: 8px;
+        }
+    }
 
+    @media (max-width: 480px) {
+        .cities-carousel-container {
+            padding: 0 10px;
+        }
+        
+        .city-item {
+            padding: 8px 16px;  /* Padding adapté au mobile */
+            font-size: 11px;
+            border-radius: 14px;
+        }
+        
+        .carousel-nav {
+            width: 32px;
+            height: 32px;
+            font-size: 14px;
+        }
+    }
+
+    /* Texte d'avertissement et contact */
+    .warning-text-container {
+        margin-top: 40px;
+        text-align: center;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .warning-text {
+        font-size: 14px;
+        line-height: 1.6;
+        margin-bottom: 15px;
+        opacity: 0.9;
+    }
+
+    .contact-text {
+        font-size: 14px;
+        line-height: 1.6;
+        margin-top: 10px;
+    }
+
+    .phone-number {
+        font-weight: 700;
+        color: #494a4b;
+        letter-spacing: 1px;
+    }
+
+    .phone-number:hover {
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .warning-text-container {
+            margin-top: 30px;
+            padding: 0 15px;
+        }
+        
+        .warning-text, .contact-text {
+            font-size: 12px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .warning-text, .contact-text {
+            font-size: 11px;
+        }
+    }
         /*section-2*/
 
         .section-2 {
@@ -320,7 +633,7 @@
             gap: 1px;
             position: absolute;
             right: 195px;
-            top: 1025px;
+            top: 1400px;
         }
 
         .feature {
@@ -447,6 +760,132 @@
             flex-shrink: 0;
             white-space: nowrap;
         }
+
+        /* Section Multi-Match Series */
+    .multi-match-section {
+        padding: 60px 30px;
+        background: transparent;
+    }
+
+    .multi-match-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        gap: 50px;
+        flex-wrap: wrap;
+        border-radius: 30px;
+        padding: 110px 60px;
+        position: relative;
+        overflow: hidden;
+        background: rgba(0, 0, 0, 0.9);
+    }
+
+    /* Image en arrière-plan de la carte */
+    .multi-match-container::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('Icones_site2/multi-match-image.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        opacity: 0.3;
+        z-index: 0;
+        border-radius: 30px;
+    }
+
+    /* Contenu de la carte (par-dessus l'image) */
+    .multi-match-text {
+        flex: 1;
+        min-width: 280px;
+        position: relative;
+        z-index: 1;
+    }
+
+    .card-subtitle {
+        font-size: 14px;
+        color: #0598B8;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 10px;
+    }
+
+    .card-title {
+        font-size: 32px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        margin-bottom: 20px;
+        color: white;
+    }
+
+    .card-description {
+        font-size: 16px;
+        line-height: 1.5;
+        margin-bottom: 15px;
+        color: #ddd;
+    }
+
+    .card-note {
+        font-size: 13px;
+        color: #999;
+        margin-bottom: 25px;
+    }
+
+    .buy-now-btn {
+            background-color: transparent;
+            color: white;
+            border: 2px solid #e1e4e6;
+            padding: 12px 24px;
+            border-radius: 0 30px 30px 30px;
+            cursor: pointer;
+            font-weight: 600;
+            margin-top: 15px;
+            transition: all 0.3s;
+            width: auto;
+            flex-shrink: 0;
+            white-space: nowrap;
+        }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .multi-match-section {
+            padding: 40px 20px;
+        }
+        
+        .multi-match-container {
+            flex-direction: column;
+            text-align: center;
+            padding: 30px;
+            gap: 30px;
+        }
+        
+        .card-title {
+            font-size: 26px;
+        }
+        
+        .card-description {
+            font-size: 14px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .multi-match-container {
+            padding: 20px;
+        }
+        
+        .card-title {
+            font-size: 22px;
+        }
+        
+        .buy-now-btn {
+            width: 100%;
+            padding: 12px 20px;
+        }
+    }
 
         /* Section 3 */
         .section-3 {
@@ -777,9 +1216,9 @@
 
         .btn-secondary {
             background-color: transparent;
-            color: #2d2d2d;
-            border: 2px solid #666;
-            padding: 12px 24px;
+            color: white;
+            border: 1px solid #adaaaa;
+            padding: 24px 28px;
             border-radius: 0 30px 30px 30px;
             cursor: pointer;
             font-weight: 100;

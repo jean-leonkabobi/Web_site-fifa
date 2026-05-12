@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Site de Matchs - HTML/CSS uniquement</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="hospitality.css">
 </head>
 <body>
@@ -12,12 +13,12 @@
     <header>
     <div class="header-top">
         <div class="logos">
-            <img src="Icones_site2/hospitality_logo.png" style="height: 40px; width: 220px;">
+            <img src="Icones_site2/hospitality_logo.png" style="height: 60px; width: 180px;">
         </div>
         
         <div class="location-selector">
             <select>
-                <option>Sélectionnez la localisation</option>
+                <option>Localisation</option>
                 <option>Paris</option>
                 <option>Lyon</option>
                 <option>Marseille</option>
@@ -29,6 +30,9 @@
             <a href="#section-2-container">Match Offerings</a>
             <a href="#section-4-container">About</a>
             <a href="#section-6-container">FAQ</a>
+            <a href="#Schedule">
+                Schedule <i class="fas fa-calendar-alt"></i>
+            </a>
         </nav>
         
         <div class="user-section">
@@ -54,29 +58,263 @@
 
     <!-- Section 1 -->
     <section class="section-1" id="section-1">
-        <div class="content">
-            <div class="text-content">
-                <h2>Get Closer Than Ever to</h2>
-                <h1>FIFA WORLD CUP 26™</h1>
-                <p>Experience the best of the beautiful game with complete hospitality packages featuring premium tickets, food & beverage, and beyond. Now available across all three host nations, including single matches*!</p>
-                <div class="buttons">
-                    <button class="btn-primary">Trouver un match</button>
-                    <button class="btn-secondary">En savoir plus</button>
+              <!-- Première ligne d'images (tout en haut) -->
+                <img src="Icones_site2/image-left.png" class="corner-image top-left-1">
+                <img src="Icones_site2/right_enhaut.png" class="corner-image top-right-1">
+                
+                <!-- Deuxième ligne d'images (plus bas, mais toujours en haut) -->
+                <img src="Icones_site2/left_en bas.png" alt="Image haut gauche niveau 2" class="corner-image top-left-2">
+                <img src="Icones_site2/right_enbas.png" alt="Image haut droit niveau 2" class="corner-image top-right-2">
+    
+    <div class="content">
+        <div class="text-content">
+            <!-- Compte à rebours -->
+            <div class="countdown-container">
+                <div class="countdown-timer">
+                    <div class="countdown-block">
+                        <span class="countdown-number" id="days">00</span>
+                        <span class="countdown-label">Jours</span>
+                    </div>
+                    <div class="countdown-block">
+                        <span class="countdown-number" id="hours">00</span>
+                        <span class="countdown-label">Heures</span>
+                    </div>
+                    <div class="countdown-block">
+                        <span class="countdown-number" id="minutes">00</span>
+                        <span class="countdown-label">Minutes</span>
+                    </div>
+                    <div class="countdown-block">
+                        <span class="countdown-number" id="seconds">00</span>
+                        <span class="countdown-label">Secondes</span>
+                    </div>
                 </div>
-                <br>
-                <h3>Official hospitality packages are now available to purchase!</h3>
-                <p>Don't risk unofficial sources or leave tickets to chance in the future. Secure your place now at the greatest FIFA World Cup™ in history with On Location, Official Hospitality Provider of FIFA World Cup 26™, and get closer than ever to the experience of a lifetime.
-                    <br>
-                    <br>
-                    *Host nation team matches – Canada, Mexico, and the U.S. – are not currently available as Single-Match offerings. To access host nation team matches, consider a Venue Series offering. See hospitality packages and FAQs below, and a list of official Sales Agents here.
-                </p>
             </div>
-            <div class="video-content">
-                <div class="video-placeholder">
-                    VIDÉO DE PRÉSENTATION
+            <h4>Get Closer Than Ever to</h4>
+            <h1>FIFA WORLD CUP 2026™</h1>
+            <p>Experience the best of it all with official hospitality packages featuring premium tickets, food & beverage, entertainment, and more. Now available: single matches and private suites!</p>
+            <div class="buttons">
+                <button class="btn-primary">Browse matches</button>
+                <button class="btn-secondary">Shop final</button>
+            </div>
+        </div>
+
+       <!-- Carrousel Villes -->
+        <div class="cities-carousel-container">
+            <!-- Conteneur des flèches au-dessus à droite -->
+            <div class="carousel-nav-container">
+                <button class="carousel-nav prev-btn" id="prevCityBtn">
+                    ❮
+                </button>
+                <button class="carousel-nav next-btn" id="nextCityBtn">
+                    ❯
+                </button>
+            </div>
+            
+            <!-- Wrapper du carrousel -->
+            <div class="cities-carousel-wrapper">
+                <div class="cities-carousel" id="citiesCarousel">
+                    <div class="city-item" style="background-color: #FF6B6B; color: #000000;">ATLANTA</div>
+                    <div class="city-item" style="background-color: #4ECDC4; color: #ffffff;">BOSTON</div>
+                    <div class="city-item" style="background-color: #45B7D1; color: #ffffff;">DALLAS</div>
+                    <div class="city-item" style="background-color: #96CEB4; color: #000000;">HOUSTON</div>
+                    <div class="city-item" style="background-color: #FFEAA7; color: #000000;">KANSAS CITY</div>
+                    <div class="city-item" style="background-color: #DDA0DD; color: #000000;">LOS ANGELES</div>
+                    <div class="city-item" style="background-color: #98D8C8; color: #000000;">MIAMI</div>
+                    <div class="city-item" style="background-color: #F7DC6F; color: #000000;">NEW YORK</div>
+                    <div class="city-item" style="background-color: #E8A0BF; color: #ffffff;">NEW JERSEY</div>
+                    <div class="city-item" style="background-color: #BAE1FF; color: #ffffff;">PHILADELPHIA</div>
+                    <div class="city-item" style="background-color: #FFB347; color: #ffffff;">SAN FRANCISCO</div>
+                    <div class="city-item" style="background-color: #77DD77; color: #ffffff;">SEATTLE</div>
+                    <div class="city-item" style="background-color: #AEC6CF; color: #ffffff;">TORONTO</div>
+                    <div class="city-item" style="background-color: #FFB7B2; color: #ffffff;">VANCOUVER</div>
+                    <div class="city-item" style="background-color: #C3B1E1; color: #ffffff;">MEXICO CITY</div>
+                    <div class="city-item" style="background-color: #FFD1DC; color: #ffffff;">GUADALAJARA</div>
+                    <div class="city-item" style="background-color: #9AD0F5; color: #000000;">MONTERREY</div>
                 </div>
             </div>
         </div>
+
+        <!-- Texte d'avertissement et contact -->
+        <div class="warning-text-container">
+            <p class="warning-text">
+                Don't risk unofficial sources or leave tickets to chance!<br>
+                Secure your place with ticket-inclusive hospitality packages from On Location, Official Hospitality Provider of FIFA World Cup 2026™.
+            </p>
+            <p class="contact-text">
+                Can't find exactly what you're looking for online? Call us to explore additional inventory: <span class="phone-number">1-844-652-1685</span>
+            </p>
+        </div>
+
+        <script>
+    // Date de l'événement (modifiez selon vos besoins)
+    // Format: Année, Mois (0-11), Jour, Heure, Minute, Seconde
+    const eventDate = new Date(2026, 5, 11, 0, 0, 0); // 11 juin 2026
+    
+        function updateCountdown() {
+            const now = new Date();
+            const difference = eventDate - now;
+            
+            if (difference <= 0) {
+                document.getElementById('days').textContent = '00';
+                document.getElementById('hours').textContent = '00';
+                document.getElementById('minutes').textContent = '00';
+                document.getElementById('seconds').textContent = '00';
+                return;
+            }
+            
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+            
+            document.getElementById('days').textContent = days.toString().padStart(2, '0');
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+        
+        // Mise à jour toutes les secondes
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // Carrousel des villes
+document.addEventListener('DOMContentLoaded', function() {
+    const carousel = document.getElementById('citiesCarousel');
+    const prevBtn = document.getElementById('prevCityBtn');
+    const nextBtn = document.getElementById('nextCityBtn');
+    const dotsContainer = document.getElementById('carouselDots');
+    
+    if (!carousel) return;
+    
+    const cityItems = document.querySelectorAll('.city-item');
+    const itemsPerView = window.innerWidth < 768 ? 2 : (window.innerWidth < 1024 ? 4 : 6);
+    let currentIndex = 0;
+    let startX = 0;
+    let isDragging = false;
+    
+    // Calculer la largeur d'un élément
+    function getItemWidth() {
+        const firstItem = cityItems[0];
+        if (!firstItem) return 200;
+        const style = getComputedStyle(firstItem);
+        const width = firstItem.offsetWidth;
+        const gap = 30; // gap entre les éléments
+        return width + gap;
+    }
+    
+    // Mettre à jour le carrousel
+    function updateCarousel() {
+        const itemWidth = getItemWidth();
+        const maxIndex = Math.max(0, cityItems.length - itemsPerView);
+        if (currentIndex > maxIndex) currentIndex = maxIndex;
+        if (currentIndex < 0) currentIndex = 0;
+        const translateX = -currentIndex * itemWidth;
+        carousel.style.transform = `translateX(${translateX}px)`;
+        updateDots();
+    }
+    
+    // Créer les indicateurs (dots)
+    function createDots() {
+        if (!dotsContainer) return;
+        const totalDots = Math.ceil(cityItems.length / itemsPerView);
+        dotsContainer.innerHTML = '';
+        for (let i = 0; i < totalDots; i++) {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            dot.addEventListener('click', () => {
+                currentIndex = i * itemsPerView;
+                updateCarousel();
+            });
+            dotsContainer.appendChild(dot);
+        }
+        updateDots();
+    }
+    
+    function updateDots() {
+        if (!dotsContainer) return;
+        const dots = document.querySelectorAll('.dot');
+        const activeDotIndex = Math.floor(currentIndex / itemsPerView);
+        dots.forEach((dot, index) => {
+            if (index === activeDotIndex) {
+                dot.classList.add('active');
+            } else {
+                dot.classList.remove('active');
+            }
+        });
+    }
+    
+    // Navigation
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            currentIndex--;
+            updateCarousel();
+        });
+    }
+    
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            currentIndex++;
+            updateCarousel();
+        });
+    }
+    
+    // Swipe (drag) pour mobile
+    carousel.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        startX = e.pageX;
+        carousel.style.cursor = 'grabbing';
+    });
+    
+    window.addEventListener('mouseup', () => {
+        isDragging = false;
+        carousel.style.cursor = 'grab';
+    });
+    
+    carousel.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        const diff = e.pageX - startX;
+        if (Math.abs(diff) > 50) {
+            if (diff > 0) {
+                currentIndex--;
+            } else {
+                currentIndex++;
+            }
+            updateCarousel();
+            isDragging = false;
+        }
+    });
+    
+    // Touch events pour mobile
+    let touchStartX = 0;
+    carousel.addEventListener('touchstart', (e) => {
+        touchStartX = e.touches[0].clientX;
+    });
+    
+    carousel.addEventListener('touchend', (e) => {
+        const touchEndX = e.changedTouches[0].clientX;
+        const diff = touchEndX - touchStartX;
+        if (Math.abs(diff) > 50) {
+            if (diff > 0) {
+                currentIndex--;
+            } else {
+                currentIndex++;
+            }
+            updateCarousel();
+        }
+    });
+    
+    // Redimensionnement de la fenêtre
+    window.addEventListener('resize', () => {
+        updateCarousel();
+        createDots();
+    });
+    
+    // Initialisation
+    createDots();
+    updateCarousel();
+});
+    </script>
+    </div>
     </section>
 
     <!-- Section 2 -->
@@ -103,7 +341,7 @@
                 </div>
             </div>
             <div class="right-content">
-    <!-- SINGLE MATCH -->
+                <!-- SINGLE MATCH -->
                 <div class="box">
                     <h3>SINGLE MATCH</h3>
                     <p>See the beautiful game on its greatest stage at the match of your choice.</p>
@@ -146,6 +384,20 @@
                         <button class="btn-outline">Buy Now</button>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Multi-Match Series -->
+    <section class="multi-match-section">
+        <div class="multi-match-container">
+            <!-- Texte à gauche -->
+            <div class="multi-match-text">
+                <h3 class="card-subtitle">Your path to the Final Match!</h3>
+                <h2 class="card-title">MULTI-MATCH SERIES</h2>
+                <p class="card-description">Customize your ultimate FIFA World Cup 2026™ experience.<br>Must purchase 4-5 matches (see details).</p>
+                <p class="card-note">All matches subject to availability.</p>
+                <button class="buy-now-btn">Buy Now</button>
             </div>
         </div>
     </section>

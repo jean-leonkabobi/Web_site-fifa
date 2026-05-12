@@ -1,783 +1,576 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Singles Matches</title>
-    <link rel="stylesheet" href="singles.css">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Match Centre | FIFA</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script>
+tailwind.config={theme:{extend:{colors:{fifablue:'#143A85',fifablueD:'#044A80',fifabg:'#F4F6FB',fifaSoft:'#EAF0FA',fifaTxt:'#1C1C1C',fifaMuted:'#6B7280'},fontFamily:{sans:['Inter','system-ui','sans-serif']}}}}
+</script>
+<style>
+body{font-family:'Inter',sans-serif;color:#1C1C1C;background:#F4F6FB}
+.flag{display:inline-block;width:18px;height:12px;border-radius:2px;background:#cbd5e1;vertical-align:middle}
+.row-band{background:#EAF0FA}
+.divider{border-top:1px solid #E5EAF2}
+.tab-pill{background:#fff;border:1px solid #D5DCEA;color:#143A85;font-weight:600;border-radius:999px;padding:4px 12px;font-size:12px}
+.tab-pill.active{background:#143A85;color:#fff;border-color:#143A85}
+.toggle{width:30px;height:16px;background:#cbd5e1;border-radius:999px;position:relative;display:inline-block;cursor:pointer}
+.toggle::after{content:"";position:absolute;left:2px;top:2px;width:12px;height:12px;border-radius:999px;background:#fff;transition:.2s}
+.toggle.on{background:#143A85}
+.toggle.on::after{left:16px}
+.scrollbar-hide::-webkit-scrollbar{display:none}
+.scrollbar-hide{-ms-overflow-style:none;scrollbar-width:none}
+.team-logo{width:18px;height:18px;border-radius:999px;background:#e5e7eb;display:inline-flex;align-items:center;justify-content:center;font-size:9px;color:#475569;font-weight:700}
+.lg-logo{width:34px;height:34px;border-radius:6px;background:#fff;border:1px solid #E5EAF2;display:inline-flex;align-items:center;justify-content:center;font-weight:800;color:#143A85;font-size:11px}
+.score{background:#fff;border:1px solid #E5EAF2;border-radius:4px;padding:1px 6px;font-weight:700;font-size:12px;color:#143A85}
+.time-pill{background:#fff;border:1px solid #E5EAF2;border-radius:4px;padding:1px 6px;font-size:11px;color:#475569;font-weight:600}
+a:hover{text-decoration:underline}
+.live-dot{color:#ff4444;font-size:10px;animation:pulse 1s infinite;display:inline-block;margin-right:4px}
+.live-badge-match{background:#ff4444;color:white;padding:2px 8px;border-radius:20px;font-size:11px;font-weight:bold;animation:pulse 1s infinite}
+@keyframes pulse{0%{opacity:1}50%{opacity:0.5}100%{opacity:1}}
+.grid.md\:grid-cols-\[1fr_320px\]{margin-bottom:32px}
+.match-row,.match-item,.px-4.py-2{font-size:15px !important}
+.team-name,.team-home,.team-away,.text-right,.text-left{font-size:15px !important}
+.match-time,.time-pill{font-size:14px !important;padding:4px 10px !important}
+.match-score,.score{font-size:14px !important;padding:4px 8px !important}
+.text-\[13px\].font-bold.text-fifablue{font-size:16px !important}
+.px-4.py-2{padding-top:12px !important;padding-bottom:12px !important}
+.separator-light,.divider{margin:8px 0 !important}
+</style>
 </head>
 <body>
-    <!-- Barre de navigation -->
-    <header>
-    <!-- Navbar supérieure -->
-        <div class="top-navbar">
-            <a href="fifa_hospitality/hospitality.html">BILLETS ET HOSPITALITÉ</a>
-            <a href="singles_matches/singles.html">FIFA+</a>
-            <a href="shoppingplace/shopping.html">FIFA STORE</a>
-            <a href="#">FIFA COLLECT</a>
-            <a href="#">INSIDE FIFA</a>
+
+<!-- TOP NAV -->
+<div class="sticky top-0 z-50">
+    <div class="bg-[#044a80] hidden md:block">
+        <div class="flex justify-start items-center h-10 space-x-6 text-xs font-medium text-white tracking-wide" style="padding-left: 1180px;">
+            <a href="#" class="hover:text-gray-200 transition">BILLETS ET HOSPITALITÉ</a>
+            <a href="#" class="hover:text-gray-200 transition">FIFA+</a>
+            <a href="#" class="hover:text-gray-200 transition">FIFA STORE</a>
+            <a href="#" class="hover:text-gray-200 transition">FIFA COLLECT</a>
+            <a href="#" class="hover:text-gray-200 transition">FIFA REWARDS</a>
         </div>
-
-        <!-- Navbar principale -->
-        <nav class="navbar">
-            <div class="menu-icon" id="menuToggle">
-                <i class="fas fa-bars"></i>
-            </div>
-            <div class="logo">
-                <img src="assets/images/logo_fifa.png" alt="FIFA Logo">
-            </div>
-            <div class="nav-links">
-                <a href="singles_matches/singles.html">TOURNOIS</a>
-                <a href="singles_matches/singles.html">MATCH CENTRE</a>
-                <a href="#section-container">L'ACTU</a>
-                <a href="singles_matches/singles.html">CLASSEMENTS</a>
-                <a href="fifa_hospitality/hospitality.html#section-1">REGARDER SUR FIFA+</a>
-                <a href="fifa_hospitality/hospitality.html#section-3-container">JOUER</a>
-                <a href="shoppingplace/shopping.html">BOUTIQUE</a>
-                <a href="#section">INSIDE FIFA</a>
-            </div>
-            <div class="nav-right">
-                <i class="fas fa-search"></i>
-                <i class="fas fa-globe"></i>
-            <a href="signin.html" style="text-decoration: none;">
-                <i class="fas fa-user"></i>
-            </a>
-            </div>
-        </nav>
-</header>
-
-    <!-- Contenu principal -->
-    <div class="main-container">
-        <!-- Section titre et phrases -->
-        <section class="title-section">
-            <div class="title-container">
-                <h1 class="main-title">Match Centre</h1>
-                <div class="filter-buttons">
-                    <button class="filter-btn active">MASCULIN</button>
-                    <button class="filter-btn">FÉMININ</button>
-                    <button class="filter-btn matches">MATCHES</button>
+    </div>
+    <header class="bg-[#045694] text-white">
+        <div class="px-4 h-16 flex items-center justify-between">
+            <div class="relative">
+                <button id="hamburgerBtn" class="p-1 rounded transition" style="margin-left: 145px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+                <div id="mobileMenu" class="hidden absolute left-0 top-full mt-2 w-96 bg-[#045694] text-white rounded-md shadow-xl z-50">
+                    <div class="flex flex-col py-2">
+                        <div>
+                            <button id="boutiqueAccordionBtn" class="w-full text-left px-6 py-3 text-base font-medium transition flex items-center justify-between">
+                                BOUTIQUE
+                                <svg id="boutiqueArrow" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-200">
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
+                            </button>
+                            <div id="boutiqueSubMenuAccordion" class="hidden">
+                                <div class="flex flex-col py-2">
+                                    <a href="#" class="px-6 py-3 text-base transition">FIFA STORE</a>
+                                    <a href="#" class="px-6 py-3 text-base transition">BILLETS ET HOSPITALITÉ</a>
+                                    <a href="#" class="px-6 py-3 text-base transition">FIFA COLLECT</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </section>
-
-        <!-- Section Recherche et Calendrier -->
-<section class="search-calendar-section">
-    <!-- Barre de recherche -->
-    <div class="search-container">
-        <i class="fas fa-search search-icon"></i>
-        <input type="text" class="search-input" placeholder="Recherche d'une compétition ou d'une équipe...">
-        <button class="filter-button">
-            <i class="fas fa-sliders-h"></i>
-        </button>
-    </div>
-
-    <!-- Calendrier -->
-    <div class="calendar-wrapper">
-        <div class="calendar-scroll">
-            <button class="calendar-nav prev"><i class="fas fa-chevron-left"></i></button>
-            
-            <div class="calendar-days">
-                <!-- Les jours seront générés par JavaScript -->
+            <div class="absolute left-[220px] transform -translate-x-1/2">
+                <img src="../assets/images/logo_fifa.png" alt="FIFA" class="h-10 w-auto">
             </div>
-            
-            <button class="calendar-nav next"><i class="fas fa-chevron-right"></i></button>
+            <nav class="hidden lg:flex space-x-5 text-lg font-medium uppercase tracking-wide" style="margin-left: -110px;">
+                <a href="#" class="hover:text-gray-200 transition">TOURNOIS ET ÉVÉNEMENTS</a>
+                <a href="#" class="hover:text-gray-200 transition">MATCH CENTRE</a>
+                <a href="#actu" class="hover:text-gray-200 transition">L'ACTU</a>
+                <a href="#" class="hover:text-gray-200 transition">CLASSEMENTS</a>
+                <a href="#" class="hover:text-gray-200 transition font-semibold">BILLETS ET HOSPITALITÉ</a>
+                <a href="#" class="hover:text-gray-200 transition">JOUER</a>
+                <a href="#" class="hover:text-gray-200 transition">INSIDE FIFA</a>
+            </nav>
+            <div class="flex items-center space-x-3" style="margin-right: 170px;">
+                <button class="p-2 rounded transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                    </svg>
+                </button>
+                <button class="p-2 rounded transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+                    </svg>
+                </button>
+            </div>
         </div>
-        
-        <!-- Indicateur de matchs en direct -->
-        <div class="live-indicator">
-            <span class="live-dot"></span>
-            <span class="live-text">En direct (6)</span>
-        </div>
-    </div>
+    </header>
+</div>
 
-    <!-- Résultats de recherche (caché par défaut) -->
-    <div class="search-results" style="display: none;">
-        <!-- Les résultats apparaîtront ici -->
-    </div>
+<script>
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (hamburgerBtn && mobileMenu) {
+        hamburgerBtn.addEventListener('click', (e) => { e.stopPropagation(); mobileMenu.classList.toggle('hidden'); });
+        document.addEventListener('click', (e) => { if (!hamburgerBtn.contains(e.target) && !mobileMenu.contains(e.target)) mobileMenu.classList.add('hidden'); });
+    }
+    const boutiqueAccordionBtn = document.getElementById('boutiqueAccordionBtn');
+    const boutiqueSubMenuAccordion = document.getElementById('boutiqueSubMenuAccordion');
+    const boutiqueArrow = document.getElementById('boutiqueArrow');
+    if (boutiqueAccordionBtn && boutiqueSubMenuAccordion) {
+        boutiqueAccordionBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            boutiqueSubMenuAccordion.classList.toggle('hidden');
+            boutiqueArrow.style.transform = boutiqueSubMenuAccordion.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+        });
+    }
+</script>
 
-    <!-- Matchs du jour sélectionné -->
-    <div class="matches-container">
-        <!-- Les matchs seront affichés ici -->
+<!-- TITLE BAR -->
+<section class="bg-fifablueD text-white">
+  <div class="max-w-[1540px] mx-auto px-4 py-5 flex items-end gap-4">
+    <h1 class="text-2xl font-extrabold">Match Centre</h1>
+    <div class="flex items-center gap-2 ml-2">
+      <button class="tab-pill active">MASCULIN</button>
+      <button class="tab-pill">FÉMININ</button>
     </div>
+    <div class="ml-6">
+      <button class="text-[13px] font-bold border-b-2 border-white pb-1">MATCHES</button>
+    </div>
+  </div>
 </section>
 
-
-        <!-- Section des sélecteurs -->
-        <section class="selectors-section">
-            <!-- Location -->
-            <div class="selector">
-                <input type="checkbox" id="location-toggle" class="selector-toggle">
-                <label for="location-toggle" class="selector-header">
-                    <h3>Location</h3>
-                    <div class="toggle-icon"></div>
-                </label>
-                <div class="selector-content">
-                    <div class="checkbox-item">
-                        <label for="all-location">All</label>
-                        <input type="checkbox" id="all-location" checked>
-                    </div>
-                    <div class="checkbox-item">
-                        <label for="stadium1">Stade 1</label>
-                        <input type="checkbox" id="stadium1">
-                    </div>
-                    <div class="checkbox-item">
-                        <label for="stadium2">Stade 2</label>
-                        <input type="checkbox" id="stadium2">
-                    </div>
-                    <div class="checkbox-item">
-                        <label for="stadium3">Stade 3</label>
-                        <input type="checkbox" id="stadium3">
-                    </div>
-                    <div class="checkbox-item">
-                        <label for="stadium4">Stade 4</label>
-                        <input type="checkbox" id="stadium4">
-                    </div>
-                </div>
-            </div>
-
-            <!-- Team -->
-             <div class="selector">
-                <input type="checkbox" id="team-toggle" class="selector-toggle">
-                <label for="team-toggle" class="selector-header">
-                    <h3>Team</h3>
-                    <div class="toggle-icon"></div>
-                </label>
-                <div class="selector-content">
-                    <div class="checkbox-item">
-                        <label for="all-team">All</label>
-                        <input type="checkbox" id="all-team" checked>
-                    </div>
-                    <div class="checkbox-item">
-                        <label for="team1c">1C</label>
-                        <input type="checkbox" id="team1c">
-                    </div>
-                    <div class="checkbox-item">
-                        <label for="team1d">1D</label>
-                        <input type="checkbox" id="team1d">
-                    </div>
-                    <div class="checkbox-item">
-                        <label for="team1e">1E</label>
-                        <input type="checkbox" id="team1e">
-                    </div>
-                    <div class="checkbox-item">
-                        <label for="team1g">1G</label>
-                        <input type="checkbox" id="team1g">
-                    </div>
-                    <div class="checkbox-item">
-                        <label for="team1h">1H</label>
-                        <input type="checkbox" id="team1h">
-                    </div>
-                </div>
-            </div>
-
-            <!-- Date Range -->
-            <div class="selector">
-                <input type="checkbox" id="date range-toggle" class="selector-toggle">
-                <label for="date range-toggle" class="selector-header">
-                    <h3>Date Range</h3>
-                    <div class="toggle-icon"></div>
-                </label>
-                <div class="selector-content">
-                    <div class="checkbox-item">
-                        <label for="january">Janvier 2023</label>
-                        <input type="checkbox" id="january">
-                    </div>
-                    <div class="checkbox-item">
-                        <label for="february">Février 2023</label>
-                        <input type="checkbox" id="february">
-                    </div>
-                    <div class="checkbox-item">
-                        <label for="march">Mars 2023</label>
-                        <input type="checkbox" id="march">
-                    </div>
-                    <div class="checkbox-item">
-                        <label for="april">Avril 2023</label>
-                        <input type="checkbox" id="april">
-                    </div>
-                    <div class="checkbox-item">
-                        <label for="may">Mai 2023</label>
-                        <input type="checkbox" id="may">
-                    </div>
-                    <div class="checkbox-item">
-                        <label for="june">Juin 2023</label>
-                        <input type="checkbox" id="june">
-                    </div>
-                </div>
-            </div>
-
-            <!-- Stage -->
-            <div class="selector">
-                <input type="checkbox" id="stage-toggle" class="selector-toggle">
-                <label for="stage-toggle" class="selector-header">
-                    <h3>Stage</h3>
-                    <div class="toggle-icon"></div>
-                </label>
-                <div class="selector-content">
-                    <div class="checkbox-item">
-                        <label for="all-stage">All</label>
-                        <input type="checkbox" id="all-stage" checked>
-                    </div>
-                    <div class="checkbox-item">
-                        <label for="groups">Groups</label>
-                        <input type="checkbox" id="groups">
-                    </div>
-                    <div class="checkbox-item">
-                        <label for="round32">Round 32</label>
-                        <input type="checkbox" id="round32">
-                    </div>
-                    <div class="checkbox-item">
-                        <label for="round16">Round 16</label>
-                        <input type="checkbox" id="round16">
-                    </div>
-                </div>
-            </div>
-
-            <!-- Weekday/Weekend -->
-            <div class="selector">
-                <input type="checkbox" id="Weekday / Weekend-toggle" class="selector-toggle">
-                <label for="Weekday / Weekend-toggle" class="selector-header">
-                    <h3>Weekday / Weekend</h3>
-                    <div class="toggle-icon"></div>
-                </label>
-                <div class="selector-content">
-                    <div class="checkbox-item">
-                        <label for="all-days">All</label>
-                        <input type="checkbox" id="all-days" checked>
-                    </div>
-                    <div class="checkbox-item">
-                        <label for="weekday">Weekday</label>
-                        <input type="checkbox" id="weekday">
-                    </div>
-                    <div class="checkbox-item">
-                        <label for="weekend">Weekend</label>
-                        <input type="checkbox" id="weekend">
-                    </div>
-                </div>
-            </div>
-            
-        </section>
-
-
-        <!-- Section des contrôles -->
-        <section class="controls-section">
-            <div class="controls-section">
-                <div class="visibility-control">
-                    <input type="checkbox" id="visibility-toggle" class="visibility-toggle">
-                    <label for="visibility-toggle" class="visibility-text hide-text">Hide unavailable</label>
-                    <label for="visibility-toggle" class="eye-icon">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                            <circle cx="12" cy="12" r="3"></circle>
-                        </svg>
-                    </label>
-                    <label for="visibility-toggle" class="visibility-text show-text">Show unavailable</label>
-                </div>
-            </div>
-            <div class="sort-control">
-                <div class="sort-select">
-                    <select>
-                        <option>Sorted by date</option>
-                        <option>Date (ascending)</option>
-                        <option>Date (descending)</option>
-                        <option>Price (low to high)</option>
-                        <option>Price (high to low)</option>
-                    </select>
-                    <div class="arrow-icon">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="6 9 12 15 18 9"></polyline>
-                        </svg>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section des matches -->
-        <section class="matches-section">
-    <div class="match-list">
-        <!-- Match 1 -->
-        <div class="match-item">
-            <div class="color-strip"></div>
-            <div class="match-content">
-                <div class="match-header">
-                    <div class="match-title">Group TBD | M7</div>
-                    <div class="match-teams">
-                        <div class="team">
-                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNjY2IiBzdHJva2Utd2lkdGg9IjIiPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjEwIi8+PC9zdmc+" alt="Team C">
-                            <span class="team-letter">C</span>
-                        </div>
-                        <div class="vs">VS</div>
-                        <div class="team">
-                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNjY2IiBzdHJva2Utd2lkdGg9IjIiPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjEwIi8+PC9zdmc+" alt="Team D">
-                            <span class="team-letter">D</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="match-date">Octobre 1 Mercredi</div>
-                
-                <div class="match-location">
-                    <div class="location-city">East Rutherford, United States</div>
-                    <div class="stadium-name">New York New Jersey Stadium</div>
-                </div>
-                
-                <div class="match-price">
-                    <div class="price-tag">Starting at</div>
-                    <div class="price">$1,850 USD/pp</div>
-                </div>
-                
-                <div class="details-arrow">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <polyline points="9 18 15 12 9 6"></polyline>
-                    </svg>
-                </div>
-            </div>
-        </div>
-
-        <!-- Match 2 -->
-        <div class="match-item">
-            <div class="color-strip"></div>
-            <div class="match-content">
-                <div class="match-header">
-                    <div class="match-title">Group A | M3</div>
-                    <div class="match-teams">
-                        <div class="team">
-                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSMjNjY2IiBzdHJva2Utd2lkdGg9IjIiPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjEwIi8+PC9zdmc+" alt="Team A">
-                            <span class="team-letter">A</span>
-                        </div>
-                        <div class="vs">VS</div>
-                        <div class="team">
-                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSMjNjY2IiBzdHJva2Utd2lkdGg9IjIiPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjEwIi8+PC9zdmc+" alt="Team B">
-                            <span class="team-letter">B</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="match-date">Octobre 5 Dimanche</div>
-                
-                <div class="match-location">
-                    <div class="location-city">Los Angeles, United States</div>
-                    <div class="stadium-name">Stade Olympique</div>
-                </div>
-                
-                <div class="match-price">
-                    <div class="price-tag">Starting at</div>
-                    <div class="price">$1,250 USD/pp</div>
-                </div>
-                
-                <div class="details-arrow">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <polyline points="9 18 15 12 9 6"></polyline>
-                    </svg>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Match 3 -->
-         <div class="match-item">
-            <div class="color-strip"></div>
-            <div class="match-content">
-                <div class="match-header">
-                    <div class="match-title">Group A | M3</div>
-                    <div class="match-teams">
-                        <div class="team">
-                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSMjNjY2IiBzdHJva2Utd2lkdGg9IjIiPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjEwIi8+PC9zdmc+" alt="Team A">
-                            <span class="team-letter">A</span>
-                        </div>
-                        <div class="vs">VS</div>
-                        <div class="team">
-                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSMjNjY2IiBzdHJva2Utd2lkdGg9IjIiPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjEwIi8+PC9zdmc+" alt="Team B">
-                            <span class="team-letter">B</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="match-date">Octobre 5 Dimanche</div>
-                
-                <div class="match-location">
-                    <div class="location-city">Los Angeles, United States</div>
-                    <div class="stadium-name">Stade Olympique</div>
-                </div>
-                
-                <div class="match-price">
-                    <div class="price-tag">Starting at</div>
-                    <div class="price">$1,250 USD/pp</div>
-                </div>
-                
-                <div class="details-arrow">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <polyline points="9 18 15 12 9 6"></polyline>
-                    </svg>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Match 4 -->
-         <div class="match-item">
-            <div class="color-strip"></div>
-            <div class="match-content">
-                <div class="match-header">
-                    <div class="match-title">Group A | M3</div>
-                    <div class="match-teams">
-                        <div class="team">
-                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSMjNjY2IiBzdHJva2Utd2lkdGg9IjIiPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjEwIi8+PC9zdmc+" alt="Team A">
-                            <span class="team-letter">A</span>
-                        </div>
-                        <div class="vs">VS</div>
-                        <div class="team">
-                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSMjNjY2IiBzdHJva2Utd2lkdGg9IjIiPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjEwIi8+PC9zdmc+" alt="Team B">
-                            <span class="team-letter">B</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="match-date">Octobre 5 Dimanche</div>
-                
-                <div class="match-location">
-                    <div class="location-city">Los Angeles, United States</div>
-                    <div class="stadium-name">Stade Olympique</div>
-                </div>
-                
-                <div class="match-price">
-                    <div class="price-tag">Starting at</div>
-                    <div class="price">$1,250 USD/pp</div>
-                </div>
-                
-                <div class="details-arrow">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <polyline points="9 18 15 12 9 6"></polyline>
-                    </svg>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Match 5 -->
-         <div class="match-item">
-            <div class="color-strip"></div>
-            <div class="match-content">
-                <div class="match-header">
-                    <div class="match-title">Group A | M3</div>
-                    <div class="match-teams">
-                        <div class="team">
-                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSMjNjY2IiBzdHJva2Utd2lkdGg9IjIiPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjEwIi8+PC9zdmc+" alt="Team A">
-                            <span class="team-letter">A</span>
-                        </div>
-                        <div class="vs">VS</div>
-                        <div class="team">
-                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSMjNjY2IiBzdHJva2Utd2lkdGg9IjIiPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjEwIi8+PC9zdmc+" alt="Team B">
-                            <span class="team-letter">B</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="match-date">Octobre 5 Dimanche</div>
-                
-                <div class="match-location">
-                    <div class="location-city">Los Angeles, United States</div>
-                    <div class="stadium-name">Stade Olympique</div>
-                </div>
-                
-                <div class="match-price">
-                    <div class="price-tag">Starting at</div>
-                    <div class="price">$1,250 USD/pp</div>
-                </div>
-                
-                <div class="details-arrow">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <polyline points="9 18 15 12 9 6"></polyline>
-                    </svg>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Match 6 -->
-         <div class="match-item">
-            <div class="color-strip"></div>
-            <div class="match-content">
-                <div class="match-header">
-                    <div class="match-title">Group A | M3</div>
-                    <div class="match-teams">
-                        <div class="team">
-                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSMjNjY2IiBzdHJva2Utd2lkdGg9IjIiPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjEwIi8+PC9zdmc+" alt="Team A">
-                            <span class="team-letter">A</span>
-                        </div>
-                        <div class="vs">VS</div>
-                        <div class="team">
-                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSMjNjY2IiBzdHJva2Utd2lkdGg9IjIiPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjEwIi8+PC9zdmc+" alt="Team B">
-                            <span class="team-letter">B</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="match-date">Octobre 5 Dimanche</div>
-                
-                <div class="match-location">
-                    <div class="location-city">Los Angeles, United States</div>
-                    <div class="stadium-name">Stade Olympique</div>
-                </div>
-                
-                <div class="match-price">
-                    <div class="price-tag">Starting at</div>
-                    <div class="price">$1,250 USD/pp</div>
-                </div>
-                
-                <div class="details-arrow">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <polyline points="9 18 15 12 9 6"></polyline>
-                    </svg>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Match 7 -->
-         <div class="match-item">
-            <div class="color-strip"></div>
-            <div class="match-content">
-                <div class="match-header">
-                    <div class="match-title">Group A | M3</div>
-                    <div class="match-teams">
-                        <div class="team">
-                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSMjNjY2IiBzdHJva2Utd2lkdGg9IjIiPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjEwIi8+PC9zdmc+" alt="Team A">
-                            <span class="team-letter">A</span>
-                        </div>
-                        <div class="vs">VS</div>
-                        <div class="team">
-                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSMjNjY2IiBzdHJva2Utd2lkdGg9IjIiPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjEwIi8+PC9zdmc+" alt="Team B">
-                            <span class="team-letter">B</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="match-date">Octobre 5 Dimanche</div>
-                
-                <div class="match-location">
-                    <div class="location-city">Los Angeles, United States</div>
-                    <div class="stadium-name">Stade Olympique</div>
-                </div>
-                
-                <div class="match-price">
-                    <div class="price-tag">Starting at</div>
-                    <div class="price">$1,250 USD/pp</div>
-                </div>
-                
-                <div class="details-arrow">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <polyline points="9 18 15 12 9 6"></polyline>
-                    </svg>
-                </div>
-            </div>
-        </div>
-
-        <!--Match8-->
-        <div class="match-item">
-            <div class="color-strip"></div>
-            <div class="match-content">
-                <div class="match-header">
-                    <div class="match-title">Group A | M3</div>
-                    <div class="match-teams">
-                        <div class="team">
-                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSMjNjY2IiBzdHJva2Utd2lkdGg9IjIiPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjEwIi8+PC9zdmc+" alt="Team A">
-                            <span class="team-letter">A</span>
-                        </div>
-                        <div class="vs">VS</div>
-                        <div class="team">
-                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSMjNjY2IiBzdHJva2Utd2lkdGg9IjIiPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjEwIi8+PC9zdmc+" alt="Team B">
-                            <span class="team-letter">B</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="match-date">Octobre 5 Dimanche</div>
-                
-                <div class="match-location">
-                    <div class="location-city">Los Angeles, United States</div>
-                    <div class="stadium-name">Stade Olympique</div>
-                </div>
-                
-                <div class="match-price">
-                    <div class="price-tag">Starting at</div>
-                    <div class="price">$1,250 USD/pp</div>
-                </div>
-                
-                <div class="details-arrow">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <polyline points="9 18 15 12 9 6"></polyline>
-                    </svg>
-                </div>
-            </div>
-        </div>
-
-        <!--Match9-->
-        <div class="match-item">
-            <div class="color-strip"></div>
-            <div class="match-content">
-                <div class="match-header">
-                    <div class="match-title">Group A | M3</div>
-                    <div class="match-teams">
-                        <div class="team">
-                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSMjNjY2IiBzdHJva2Utd2lkdGg9IjIiPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjEwIi8+PC9zdmc+" alt="Team A">
-                            <span class="team-letter">A</span>
-                        </div>
-                        <div class="vs">VS</div>
-                        <div class="team">
-                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSMjNjY2IiBzdHJva2Utd2lkdGg9IjIiPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjEwIi8+PC9zdmc+" alt="Team B">
-                            <span class="team-letter">B</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="match-date">Octobre 5 Dimanche</div>
-                
-                <div class="match-location">
-                    <div class="location-city">Los Angeles, United States</div>
-                    <div class="stadium-name">Stade Olympique</div>
-                </div>
-                
-                <div class="match-price">
-                    <div class="price-tag">Starting at</div>
-                    <div class="price">$1,250 USD/pp</div>
-                </div>
-                
-                <div class="details-arrow">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <polyline points="9 18 15 12 9 6"></polyline>
-                    </svg>
-                </div>
-            </div>
-        </div>
-
-        <!--Match10-->
-        <div class="match-item">
-            <div class="color-strip"></div>
-            <div class="match-content">
-                <div class="match-header">
-                    <div class="match-title">Group A | M3</div>
-                    <div class="match-teams">
-                        <div class="team">
-                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSMjNjY2IiBzdHJva2Utd2lkdGg9IjIiPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjEwIi8+PC9zdmc+" alt="Team A">
-                            <span class="team-letter">A</span>
-                        </div>
-                        <div class="vs">VS</div>
-                        <div class="team">
-                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSMjNjY2IiBzdHJva2Utd2lkdGg9IjIiPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjEwIi8+PC9zdmc+" alt="Team B">
-                            <span class="team-letter">B</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="match-date">Octobre 5 Dimanche</div>
-                
-                <div class="match-location">
-                    <div class="location-city">Los Angeles, United States</div>
-                    <div class="stadium-name">Stade Olympique</div>
-                </div>
-                
-                <div class="match-price">
-                    <div class="price-tag">Starting at</div>
-                    <div class="price">$1,250 USD/pp</div>
-                </div>
-                
-                <div class="details-arrow">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <polyline points="9 18 15 12 9 6"></polyline>
-                    </svg>
-                </div>
-            </div>
-        </div>
-        <!--Match11-->
-        <div class="match-item">
-            <div class="color-strip"></div>
-            <div class="match-content">
-                <div class="match-header">
-                    <div class="match-title">Group A | M3</div>
-                    <div class="match-teams">
-                        <div class="team">
-                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSMjNjY2IiBzdHJva2Utd2lkdGg9IjIiPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjEwIi8+PC9zdmc+" alt="Team A">
-                            <span class="team-letter">A</span>
-                        </div>
-                        <div class="vs">VS</div>
-                        <div class="team">
-                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSMjNjY2IiBzdHJva2Utd2lkdGg9IjIiPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjEwIi8+PC9zdmc+" alt="Team B">
-                            <span class="team-letter">B</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="match-date">Octobre 5 Dimanche</div>
-                
-                <div class="match-location">
-                    <div class="location-city">Los Angeles, United States</div>
-                    <div class="stadium-name">Stade Olympique</div>
-                </div>
-                
-                <div class="match-price">
-                    <div class="price-tag">Starting at</div>
-                    <div class="price">$1,250 USD/pp</div>
-                </div>
-                
-                <div class="details-arrow">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <polyline points="9 18 15 12 9 6"></polyline>
-                    </svg>
-                </div>
-            </div>
-        </div>
-        <!--Match12-->
-        <div class="match-item">
-            <div class="color-strip"></div>
-            <div class="match-content">
-                <div class="match-header">
-                    <div class="match-title">Group A | M3</div>
-                    <div class="match-teams">
-                        <div class="team">
-                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSMjNjY2IiBzdHJva2Utd2lkdGg9IjIiPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjEwIi8+PC9zdmc+" alt="Team A">
-                            <span class="team-letter">A</span>
-                        </div>
-                        <div class="vs">VS</div>
-                        <div class="team">
-                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSMjNjY2IiBzdHJva2Utd2lkdGg9IjIiPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjEwIi8+PC9zdmc+" alt="Team B">
-                            <span class="team-letter">B</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="match-date">Octobre 5 Dimanche</div>
-                
-                <div class="match-location">
-                    <div class="location-city">Los Angeles, United States</div>
-                    <div class="stadium-name">Stade Olympique</div>
-                </div>
-                
-                <div class="match-price">
-                    <div class="price-tag">Starting at</div>
-                    <div class="price">$1,250 USD/pp</div>
-                </div>
-                
-                <div class="details-arrow">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <polyline points="9 18 15 12 9 6"></polyline>
-                    </svg>
-                </div>
-            </div>
-        </div>
+<!-- SEARCH -->
+<section class="bg-white border-b">
+  <div class="max-w-[1280px] mx-auto px-4 py-3">
+    <div class="relative">
+      <svg class="absolute left-3 top-2.5" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      <input class="w-full border border-slate-200 rounded-md pl-9 pr-3 py-2 text-sm" placeholder="Rechercher une compétition ou l'une de ses pa…">
     </div>
+  </div>
 </section>
-    </div>
 
-    <!-- Section Add List -->
-    <section class="add-list-section">
-        <input type="checkbox" id="add-list-toggle" class="add-list-toggle">
-        <label for="add-list-toggle" class="add-list-header">
-            <h3>Add List</h3>
-            <span class="expand-btn"></span>
-        </label>
-        <div class="add-list-content">
-            <button class="add-matches-btn">Add and Configure Matches</button>
-            <div class="total-price">
-                <span>Total:</span>
-                <span>$0</span>
-            </div>
-            <button class="checkout-btn">Checkout</button>
+<!-- DATE STRIP -->
+<section class="bg-white border-b">
+  <div class="max-w-[1280px] mx-auto px-4 py-3 flex items-center gap-2">
+    <button id="prevDateBtn" class="px-2 text-slate-400">‹</button>
+    <div id="dateStrip" class="flex-1 grid grid-cols-9 text-center text-[12px]"></div>
+    <button id="nextDateBtn" class="px-2 text-slate-400">›</button>
+  </div>
+</section>
+
+<!-- TOOLBAR -->
+<section class="bg-white border-b">
+  <div class="max-w-[1280px] mx-auto px-4 py-2 flex items-center text-[12px] text-fifaMuted">
+    <span class="flex items-center gap-2"><span class="toggle" id="liveTog"></span> <span id="liveCount">En direct (0)</span></span>
+    <span id="changeDateBtn" class="mx-auto font-semibold text-fifablue cursor-pointer">⇅ CHANGER DE DATE</span>
+    <span class="flex items-center gap-3">
+      <button class="font-semibold text-fifablue">‹ TRIER</button>
+      <button class="font-semibold text-fifablue">≡ FILTRER</button>
+    </span>
+  </div>
+</section>
+
+<!-- MODALE CALENDRIER -->
+<div id="dateModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:1000; align-items:center; justify-content:center;">
+    <div style="background:white; border-radius:16px; padding:20px; width:300px; text-align:center;">
+        <h3 class="font-bold mb-4">Changer la date</h3>
+        <input type="date" id="datePicker" class="w-full border rounded-md p-2 mb-4">
+        <div class="flex gap-2">
+            <button id="modalConfirm" class="bg-fifablue text-white px-4 py-2 rounded-md flex-1">Valider</button>
+            <button id="modalClose" class="border border-gray-300 px-4 py-2 rounded-md flex-1">Annuler</button>
         </div>
-    </section>
+    </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<main class="max-w-[1280px] mx-auto px-4 py-4 space-y-4" id="leagues"></main>
+
+<!-- DERNIERS RESULTATS -->
+<section class="bg-white border-t">
+  <div class="max-w-[1280px] mx-auto px-4 py-6">
+    <h2 class="text-sm font-extrabold tracking-wider mb-4">DERNIERS RÉSULTATS</h2>
+    <div class="flex gap-3 overflow-x-auto scrollbar-hide" id="resultsRow"></div>
+  </div>
+</section>
+
+<!-- Footer -->
+    <footer class="bg-[#045694] text-white pt-8">
+        <div class="px-4">
+            <!-- Top Footer Area -->
+            <div class="flex flex-col md:flex-row justify-between items-center md:items-center gap-4 md:gap-6 pb-6">
+                <!-- Logo FIFA tout à gauche -->
+                <div class="flex items-center">
+                    <img src="../assets/images/logo_fifa.png" alt="FIFA" class="h-12 w-auto">
+                </div>
+                
+                <!-- Réseaux sociaux -->
+                <div class="flex space-x-5">
+                    <a href="#" class="hover:text-gray-300 transition-colors text-xl">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="hover:text-gray-300 transition-colors text-xl">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="hover:text-gray-300 transition-colors text-xl">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="hover:text-gray-300 transition-colors text-xl">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="#" class="hover:text-gray-300 transition-colors text-xl">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                </div>
+                
+                <!-- Texte + boutons Apple et Play Store sur la même ligne -->
+                <div class="flex items-center gap-3">
+                    <span class="text-sm font-medium whitespace-nowrap">Télécharger dès maintenant FIFA pour plus de contenus</span>
+                    <div class="flex space-x-2">
+                        <a href="#" class="hover:opacity-80 transition-opacity">
+                            <img src="../assets/icones/play store.png" alt="Google Play" class="h-10 w-auto">
+                        </a>
+                        <a href="#" class="hover:opacity-80 transition-opacity">
+                            <img src="../assets/icones/itunes-app-store-apple-logo-portable-network-graphics-png-favpng-UKEpRYur5ivzhqLqVM99XbTAq-removebg-preview.png" alt="App Store" class="h-10 w-auto">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Première ligne horizontale -->
+            <div class="border-t border-white/30 my-6"></div>
+
+            <!-- Partners Area - Titre centré et 7 images alignées -->
+            <div class="mb-6">
+                <h4 class="text-xs uppercase tracking-widest text-center text-blue-200 mb-5 font-semibold">FIFA PARTNERS</h4>
+                <div class="flex flex-wrap justify-center items-center gap-8 md:gap-10 opacity-90">
+                    <img src="../assets/icones/adidas_white-removebg-preview.png" alt="adidas" class="h-10 w-auto object-contain">
+                    <img src="../assets/icones/coca_Cola.png" alt="Coca-Cola" class="h-16 w-auto object-contain">
+                    <img src="../assets/icones/Aramco-removebg-preview.png" alt="aramco" class="h-16 w-auto object-contain filter-white">
+                    <img src="../assets/icones/Leonvo-removebg-preview.png" alt="Lenovo" class="h-8 w-auto object-contain">
+                    <img src="../assets/icones/Quatar_airways-removebg-preview.png" alt="QATAR AIRWAYS" class="h-8 w-auto object-contain">
+                    <img src="../assets/icones/Hyundai-removebg-preview.png" alt="Hyundai" class="h-16 w-auto object-contain">
+                    <img src="../assets/icones/Visa-removebg-preview.png" alt="VISA" class="h-8 w-auto object-contain">
+                </div>
+            </div>
+
+            <!-- Deuxième ligne horizontale -->
+            <div class="border-t border-white/30 my-6"></div>
+
+            <!-- Bottom Bar - Texte à gauche et copyright à droite -->
+            <div class="py-5 text-sm">
+                <div class="flex flex-col md:flex-row justify-between items-center text-gray-300 gap-3">
+                    <div class="flex space-x-6">
+                        <a href="#" class="hover:text-white transition-colors">POLITIQUE DE CONFIDENTIALITÉ</a>
+                        <a href="#" class="hover:text-white transition-colors">CONDITIONS D'UTILISATION</a>
+                    </div>
+                    <p class="text-xs">Copyright © 1994 - 2026 FIFA. Tous droits réservés.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+<script>
+// ==================== VARIABLES GLOBALES ====================
+let selectedDate = new Date(2026, 4, 11);
+let currentGender = 'men';
+let liveMode = false;
+
+// DONNÉES COMPLÈTES MASCULIN + FÉMININ
+const leagues = [
+    // ==================== MASCULIN ====================
+    {name: 'Premier League', logo: 'PL', color: '#3D195B', round: 'Journée 36', gender: 'men', matches: [
+        {h: 'Tottenham', a: 'Leeds', hf: '🏴', af: '🏴', time: '19:00'}
+    ], table: [['1', 'Arsenal', '36', '24', '75'], ['2', 'Manchester City', '36', '21', '73']]},
+    
+    {name: 'Serie A', logo: 'SA', color: '#0066B2', round: 'Journée 36', gender: 'men', matches: [
+        {h: 'Naples', a: 'Bologne', hf: '🇮🇹', af: '🇮🇹', time: '19:45'}
+    ], table: [['1', 'FC Internazionale', '36', '24', '78'], ['2', 'Naples', '36', '21', '75']]},
+    
+    {name: 'Eredivisie', logo: 'ER', color: '#FF7E29', round: null, gender: 'men', matches: [
+        {h: 'NAC Breda', a: 'Eindhoven', hf: '🇳🇱', af: '🇳🇱', score: '2 - 0', ft: true}
+    ], table: [['1', 'PSV Eindhoven', '30', '24', '78'], ['2', 'Feyenoord', '32', '19', '62']]},
+    
+    {name: 'La Liga', logo: 'LL', color: '#EE2737', round: 'Journée 35', gender: 'men', matches: [
+        {h: 'Rayo Vallecano', a: 'Osasuna', hf: '🇪🇸', af: '🇪🇸', time: '19:00'}
+    ], table: [['1', 'FC Barcelone', '35', '30', '81'], ['2', 'Real Madrid CF', '35', '24', '77']]},
+    
+    {name: 'MLS', logo: 'MLS', color: '#001E62', round: null, gender: 'men', matches: [
+        {h: 'Los Angeles', a: 'Houston Dynamo', hf: '🇺🇸', af: '🇺🇸', score: '1 - 4', ft: true}
+    ], table: null},
+    
+    {name: 'Liga Sagres', logo: 'LS', color: '#F4B400', round: null, gender: 'men', matches: [
+        {h: 'Santa Clara', a: 'Nacional Madeira', hf: '🇵🇹', af: '🇵🇹', time: '15:30'},
+        {h: 'Rio Ave', a: 'Sporting CP', hf: '🇵🇹', af: '🇵🇹', time: '19:15', live: true},
+        {h: 'Vitoria Guimarães', a: 'Casa Pia', hf: '🇵🇹', af: '🇵🇹', time: '19:15'},
+        {h: 'SC Benfica', a: 'Sporting Braga', hf: '🇵🇹', af: '🇵🇹', time: '21:15'}
+    ], table: [['1','Sporting CP','32','25','76'],['2','Sporting Braga','32','18','67']]},
+    
+    {name: 'Liga MX', logo: 'MX', color: '#15803D', round: 'Quart de finale', gender: 'men', matches: [
+        {h: 'Pumas UNAM', a: 'América', hf: '🇲🇽', af: '🇲🇽', score: '3 - 3', live: true}
+    ], table: null},
+    
+    {name: 'Liga Nacional', logo: 'LN', color: '#003366', round: 'Clausura - Quart de finale', gender: 'men', matches: [
+        {h: 'Xelajú', a: 'Comunicaciones', hf: '🇬🇹', af: '🇬🇹', score: '2 - 0', live: true}
+    ], table: null},
+    
+    {name: 'Primera División', logo: 'PD', color: '#1E40AF', round: 'Journée 16', gender: 'men', matches: [
+        {h: 'Deportivo Maldonado', a: 'Boston Rivers', hf: '🇺🇾', af: '🇺🇾', time: '20:00'}
+    ], table: [['1','Racing','15','3','24'],['2','Albion','15','-1','20']]},
+
+    // Ajoutez ces lignes dans la partie MASCULIN du tableau `leagues`
+
+    {name: 'Bundesliga', logo: 'BUN', color: '#DD0000', round: 'Journée 34', gender: 'men', matches: [
+        {h: 'Bayern Munich', a: 'Borussia Dortmund', hf: '🇩🇪', af: '🇩🇪', time: '18:30'},
+        {h: 'RB Leipzig', a: 'Bayer Leverkusen', hf: '🇩🇪', af: '🇩🇪', score: '2 - 1', ft: true},
+        {h: 'Eintracht Frankfurt', a: 'Wolfsburg', hf: '🇩🇪', af: '🇩🇪', time: '15:30'}
+    ], table: [['1', 'Bayern Munich', '34', '68', '85'], ['2', 'Borussia Dortmund', '34', '45', '71']]},
+
+    {name: 'Ligue 1', logo: 'L1', color: '#1E64AF', round: 'Journée 34', gender: 'men', matches: [
+        {h: 'PSG', a: 'Olympique Marseille', hf: '🇫🇷', af: '🇫🇷', time: '21:00'},
+        {h: 'AS Monaco', a: 'Lyon', hf: '🇫🇷', af: '🇫🇷', score: '3 - 2', ft: true},
+        {h: 'Lille', a: 'Nice', hf: '🇫🇷', af: '🇫🇷', time: '17:00'}
+    ], table: [['1', 'PSG', '34', '62', '82'], ['2', 'AS Monaco', '34', '48', '71']]},
+
+        {name: 'Premier League', logo: 'PL', color: '#3D195B', round: 'Journée 36', gender: 'men', matches: [
+        {h: 'Tottenham', a: 'Leeds', hf: '🏴', af: '🏴', time: '19:00'},
+        {h: 'Arsenal', a: 'Manchester City', hf: '🏴', af: '🏴', score: '2 - 1', ft: true},
+        {h: 'Liverpool', a: 'Chelsea', hf: '🏴', af: '🏴', time: '17:30'},
+        {h: 'Manchester United', a: 'Aston Villa', hf: '🏴', af: '🏴', score: '3 - 3', ft: true}
+    ], table: [['1', 'Arsenal', '36', '24', '75'], ['2', 'Manchester City', '36', '21', '73']]},
+    
+    {name: 'Serie A', logo: 'SA', color: '#0066B2', round: 'Journée 36', gender: 'men', matches: [
+        {h: 'Naples', a: 'Bologne', hf: '🇮🇹', af: '🇮🇹', time: '19:45'},
+        {h: 'AC Milan', a: 'Inter Milan', hf: '🇮🇹', af: '🇮🇹', score: '1 - 1', ft: true},
+        {h: 'Juventus', a: 'Roma', hf: '🇮🇹', af: '🇮🇹', time: '21:00'}
+    ], table: [['1', 'FC Internazionale', '36', '24', '78'], ['2', 'Naples', '36', '21', '75']]},
+    
+    {name: 'Bundesliga', logo: 'BUN', color: '#DD0000', round: 'Journée 34', gender: 'men', matches: [
+        {h: 'Bayern Munich', a: 'Borussia Dortmund', hf: '🇩🇪', af: '🇩🇪', time: '18:30'},
+        {h: 'RB Leipzig', a: 'Bayer Leverkusen', hf: '🇩🇪', af: '🇩🇪', score: '2 - 1', ft: true},
+        {h: 'Eintracht Frankfurt', a: 'Wolfsburg', hf: '🇩🇪', af: '🇩🇪', time: '15:30'}
+    ], table: [['1', 'Bayern Munich', '34', '68', '85'], ['2', 'Borussia Dortmund', '34', '45', '71']]},
+
+    // ==================== FÉMININ (NOUVEAU) ====================
+    {name: 'Division 1 Féminine', logo: 'D1F', color: '#E31C25', round: 'Journée 18', gender: 'women', matches: [
+        {h: 'Olympique Lyonnais', a: 'Paris SG', hf: '🇫🇷', af: '🇫🇷', time: '21:00'},
+        {h: 'Paris FC', a: 'Fleury', hf: '🇫🇷', af: '🇫🇷', score: '2 - 1', ft: true}
+    ], table: [['1', 'Olympique Lyonnais', '18', '52', '54'], ['2', 'Paris SG', '18', '38', '45']]},
+    
+    {name: 'Women\'s Super League', logo: 'WSL', color: '#8B0000', round: 'Journée 20', gender: 'women', matches: [
+        {h: 'Chelsea', a: 'Arsenal', hf: '🏴', af: '🏴', time: '18:30'},
+        {h: 'Manchester City', a: 'Manchester United', hf: '🏴', af: '🏴', score: '3 - 1', ft: true}
+    ], table: [['1', 'Chelsea', '20', '58', '64'], ['2', 'Manchester City', '20', '42', '58']]},
+    
+    {name: 'Frauen-Bundesliga', logo: 'FBL', color: '#FF0000', round: 'Journée 19', gender: 'women', matches: [
+        {h: 'Bayern Munich', a: 'Wolfsburg', hf: '🇩🇪', af: '🇩🇪', time: '17:00'},
+        {h: 'Eintracht Frankfurt', a: 'TSG Hoffenheim', hf: '🇩🇪', af: '🇩🇪', score: '2 - 2', ft: true}
+    ], table: [['1', 'Bayern Munich', '19', '48', '51'], ['2', 'Wolfsburg', '19', '41', '47']]},
+    
+    {name: 'Serie A Femminile', logo: 'SAF', color: '#0066B2', round: 'Journée 20', gender: 'women', matches: [
+        {h: 'Juventus', a: 'Roma', hf: '🇮🇹', af: '🇮🇹', time: '15:00'},
+        {h: 'AC Milan', a: 'Inter Milan', hf: '🇮🇹', af: '🇮🇹', score: '0 - 0', ft: true}
+    ], table: [['1', 'Roma', '20', '45', '52'], ['2', 'Juventus', '20', '38', '48']]},
+    
+    {name: 'Liga F (Espagne)', logo: 'LIGAF', color: '#EE2737', round: 'Journée 27', gender: 'women', matches: [
+        {h: 'FC Barcelone', a: 'Real Madrid', hf: '🇪🇸', af: '🇪🇸', time: '19:00'},
+        {h: 'Atlético Madrid', a: 'Levante', hf: '🇪🇸', af: '🇪🇸', score: '4 - 0', ft: true}
+    ], table: [['1', 'FC Barcelone', '27', '98', '81'], ['2', 'Real Madrid', '27', '45', '60']]},
+    
+    {name: 'NWSL (USA)', logo: 'NWSL', color: '#001E62', round: 'Saison régulière', gender: 'women', matches: [
+        {h: 'San Diego Wave', a: 'Portland Thorns', hf: '🇺🇸', af: '🇺🇸', time: '04:00'},
+        {h: 'OL Reign', a: 'Gotham FC', hf: '🇺🇸', af: '🇺🇸', score: '2 - 1', ft: true}
+    ], table: [['1', 'San Diego Wave', '12', '15', '27'], ['2', 'Portland Thorns', '12', '12', '24']]},
+
+    {name: 'Division 1 Féminine', logo: 'D1F', color: '#E31C25', round: 'Journée 18', gender: 'women', matches: [
+        {h: 'Olympique Lyonnais', a: 'Paris SG', hf: '🇫🇷', af: '🇫🇷', time: '21:00'},
+        {h: 'Paris FC', a: 'Fleury', hf: '🇫🇷', af: '🇫🇷', score: '2 - 1', ft: true},
+        {h: 'Stade de Reims', a: 'Montpellier', hf: '🇫🇷', af: '🇫🇷', time: '14:30'}
+    ], table: [['1', 'Olympique Lyonnais', '18', '52', '54'], ['2', 'Paris SG', '18', '38', '45']]},
+    
+    {name: 'Women\'s Super League', logo: 'WSL', color: '#8B0000', round: 'Journée 20', gender: 'women', matches: [
+        {h: 'Chelsea', a: 'Arsenal', hf: '🏴', af: '🏴', time: '18:30'},
+        {h: 'Manchester City', a: 'Manchester United', hf: '🏴', af: '🏴', score: '3 - 1', ft: true},
+        {h: 'Liverpool', a: 'Everton', hf: '🏴', af: '🏴', time: '15:00'}
+    ], table: [['1', 'Chelsea', '20', '58', '64'], ['2', 'Manchester City', '20', '42', '58']]},
+    
+    {name: 'Frauen-Bundesliga', logo: 'FBL', color: '#FF0000', round: 'Journée 19', gender: 'women', matches: [
+        {h: 'Bayern Munich', a: 'Wolfsburg', hf: '🇩🇪', af: '🇩🇪', time: '17:00'},
+        {h: 'Eintracht Frankfurt', a: 'TSG Hoffenheim', hf: '🇩🇪', af: '🇩🇪', score: '2 - 2', live: true},
+        {h: 'Bayer Leverkusen', a: 'Freiburg', hf: '🇩🇪', af: '🇩🇪', time: '14:00'}
+    ], table: [['1', 'Bayern Munich', '19', '48', '51'], ['2', 'Wolfsburg', '19', '41', '47']]},
+
+    // Ajoutez ces lignes dans la partie FÉMININ du tableau `leagues`
+
+    {name: 'Premier League féminine', logo: 'WPL', color: '#D1193B', round: 'Journée 22', gender: 'women', matches: [
+        {h: 'Manchester United', a: 'Liverpool', hf: '🏴', af: '🏴', time: '14:00'},
+        {h: 'Everton', a: 'Brighton', hf: '🏴', af: '🏴', score: '1 - 0', live: true},
+        {h: 'West Ham', a: 'Leicester City', hf: '🏴', af: '🏴', time: '16:30'}
+    ], table: [['1', 'Manchester United', '22', '48', '56'], ['2', 'Liverpool', '22', '35', '47']]},
+
+    {name: 'Champions League Féminine', logo: 'UWCL', color: '#FFCC00', round: 'Phase de groupes', gender: 'women', matches: [
+        {h: 'FC Barcelone', a: 'Chelsea', hf: '🇪🇸', af: '🏴', time: '21:00'},
+        {h: 'Lyon', a: 'Bayern Munich', hf: '🇫🇷', af: '🇩🇪', score: '2 - 2', live: true}
+    ], table: [['1', 'FC Barcelone', '6', '18', '18'], ['2', 'Chelsea', '6', '8', '12']]},
+
+];
+// ==================== FONCTIONS ====================
+function getLiveMatchesCount() {
+    let count = 0;
+    leagues.forEach(league => {
+        if (league.gender === currentGender) {
+            league.matches.forEach(match => { if (match.live) count++; });
+        }
+    });
+    return count;
+}
+
+function updateLiveCountDisplay() {
+    const liveSpan = document.getElementById('liveCount');
+    if (liveSpan) liveSpan.innerHTML = `En direct (${getLiveMatchesCount()})`;
+}
+
+function renderMatches(gender) {
+    const container = document.getElementById('leagues');
+    if (!container) return;
+    container.innerHTML = '';
+    let filtered = leagues.filter(l => l.gender === gender);
+    
+    if (liveMode) {
+        filtered = filtered.filter(l => l.matches.some(m => m.live === true));
+        filtered.forEach(l => { l.matches = l.matches.filter(m => m.live === true); });
+    }
+    
+    filtered.forEach(L => {
+        if (L.matches.length === 0) return;
+        const matchesHtml = L.matches.map((m, i) => `
+            <div class="${i % 2 === 0 ? 'row-band' : ''} px-4 py-3 grid grid-cols-[1fr_auto_1fr] items-center gap-3" style="font-size: 15px;">
+                <div class="text-right text-[15px] flex items-center justify-end gap-2 font-medium">
+                    ${m.live ? '<span class="live-dot">🔴</span>' : ''}${m.h}<span>${m.hf}</span>
+                </div>
+                <div class="flex items-center justify-center min-w-[80px]">
+                    ${m.live ? '<span class="live-badge-match">LIVE</span>' : (m.score ? `<span class="score" style="font-size: 14px; padding: 4px 10px;">${m.score}</span>` : `<span class="time-pill" style="font-size: 14px; padding: 4px 10px;">${m.time}</span>`)}
+                </div>
+                <div class="text-left text-[15px] flex items-center gap-2 font-medium"><span>${m.af}</span>${m.a}</div>
+            </div>
+        `).join('');
+        
+        const tableHtml = L.table ? `
+            <div class="bg-white rounded-md border border-slate-200 p-3 hidden md:block">
+                <div class="flex items-center justify-between mb-2"><div class="lg-logo">${L.logo}</div><a class="text-[11px] text-fifablue font-semibold">Afficher les classements</a></div>
+                <table class="w-full text-[12px]"><thead class="text-fifaMuted"><tr><th class="text-left">Postn</th><th class="text-left">Équipe</th><th>J</th><th>G</th><th>Pts</th></tr></thead>
+                <tbody>${L.table.map(r => `<tr class="border-t"><td class="py-1 text-fifablue font-bold">${r[0]}</td><td class="py-1">${r[1]}</td><td class="text-center">${r[2]}</td><td class="text-center">${r[3]}</td><td class="text-center font-bold">${r[4]}</td></tr>`).join('')}</tbody></table>
+            </div>
+        ` : '<div></div>';
+        
+        container.insertAdjacentHTML('beforeend', `
+            <div class="grid md:grid-cols-[1fr_320px] gap-4 mb-8">
+                <div class="bg-white rounded-md border border-slate-200 overflow-hidden">
+                    <div class="px-4 py-3 flex items-center gap-3 border-b border-slate-100">
+                        <div class="lg-logo" style="color:${L.color}">${L.logo}</div>
+                        <div class="flex-1 text-center"><div class="text-[15px] font-bold text-fifablue">${L.name}</div>${L.round ? `<div class="text-[12px] text-fifaMuted">${L.round}</div>` : ''}</div>
+                        <div class="w-[34px]"></div>
+                    </div>
+                    ${matchesHtml}
+                </div>
+                ${tableHtml}
+            </div>
+        `);
+    });
+}
+
+// ==================== DATE STRIP ====================
+const months = ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Juin', 'Juil', 'Août', 'Sep', 'Oct', 'Nov', 'Déc'];
+const days = ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'];
+
+function updateDateStrip() {
+    const stripEl = document.getElementById('dateStrip');
+    if (!stripEl) return;
+    stripEl.innerHTML = '';
+    for (let i = -5; i <= 3; i++) {
+        const d = new Date(selectedDate);
+        d.setDate(selectedDate.getDate() + i);
+        const active = i === 0;
+        stripEl.insertAdjacentHTML('beforeend', `
+            <div class="${active ? 'text-fifablue font-bold border-b-2 border-fifablue pb-1 cursor-pointer' : 'text-slate-500 cursor-pointer'}" data-date="${d.toISOString()}">
+                <div class="text-[10px] uppercase">${days[d.getDay()]}</div>
+                <div class="text-[12px]">${String(d.getDate()).padStart(2, '0')} ${months[d.getMonth()]}</div>
+            </div>
+        `);
+    }
+    document.querySelectorAll('#dateStrip > div').forEach(el => {
+        el.addEventListener('click', () => { selectedDate = new Date(el.dataset.date); updateDateStrip(); });
+    });
+}
+
+document.getElementById('prevDateBtn')?.addEventListener('click', () => { selectedDate.setDate(selectedDate.getDate() - 1); updateDateStrip(); });
+document.getElementById('nextDateBtn')?.addEventListener('click', () => { selectedDate.setDate(selectedDate.getDate() + 1); updateDateStrip(); });
+
+// ==================== MODALE CALENDRIER ====================
+const modal = document.getElementById('dateModal');
+const changeDateBtn = document.getElementById('changeDateBtn');
+const modalConfirm = document.getElementById('modalConfirm');
+const modalClose = document.getElementById('modalClose');
+const datePicker = document.getElementById('datePicker');
+
+if (changeDateBtn) changeDateBtn.addEventListener('click', () => { datePicker.value = selectedDate.toISOString().split('T')[0]; modal.style.display = 'flex'; });
+if (modalConfirm) modalConfirm.addEventListener('click', () => { const newDate = new Date(datePicker.value); if (!isNaN(newDate.getTime())) { selectedDate = newDate; updateDateStrip(); } modal.style.display = 'none'; });
+if (modalClose) modalClose.addEventListener('click', () => { modal.style.display = 'none'; });
+window.addEventListener('click', (e) => { if (e.target === modal) modal.style.display = 'none'; });
+
+// ==================== BOUTONS ====================
+function initGenderButtons() {
+    const menBtn = document.querySelector('button.tab-pill.active');
+    const womenBtn = document.querySelector('button.tab-pill:last-child');
+    if (menBtn && womenBtn) {
+        menBtn.addEventListener('click', () => { menBtn.classList.add('active'); womenBtn.classList.remove('active'); currentGender = 'men'; renderMatches('men'); updateLiveCountDisplay(); });
+        womenBtn.addEventListener('click', () => { womenBtn.classList.add('active'); menBtn.classList.remove('active'); currentGender = 'women'; renderMatches('women'); updateLiveCountDisplay(); });
+    }
+}
+
+const liveTog = document.getElementById('liveTog');
+if (liveTog) {
+    liveTog.addEventListener('click', (e) => {
+        e.currentTarget.classList.toggle('on');
+        liveMode = e.currentTarget.classList.contains('on');
+        renderMatches(currentGender);
+        updateLiveCountDisplay();
+    });
+}
+
+// ==================== DERNIERS RÉSULTATS ====================
+const results = [
+    {comp: 'Champions League', h: 'Arsenal', a: 'PSG', hs: 1, as: 0},
+    {comp: 'Champions League', h: 'Inter Milan', a: 'Barcelone', hs: 4, as: 3},
+    {comp: 'Eredivisie', h: 'Sparta Rotterdam', a: 'AZ Alkmaar', hs: 1, as: 1},
+    {comp: 'Premier League', h: 'Liverpool', a: 'Arsenal', hs: 2, as: 2},
+    {comp: 'Bundesliga', h: 'Bayer Leverkusen', a: 'Borussia Dortmund', hs: 2, as: 4},
+    {comp: 'Ligue 1', h: 'PSG', a: 'Olympique Lyonnais', hs: 3, as: 1},
+];
+const rrow = document.getElementById('resultsRow');
+if (rrow) {
+    results.forEach(r => {
+        rrow.insertAdjacentHTML('beforeend', `
+            <div class="min-w-[280px] border border-slate-200 rounded-md p-4 bg-white shadow-sm hover:shadow-md transition-shadow">
+                <div class="text-[12px] text-fifaMuted font-semibold uppercase mb-3 tracking-wide">${r.comp}</div>
+                <div class="flex items-center justify-between text-[15px] py-2"><span class="flex items-center gap-3 font-medium"><span class="team-logo w-6 h-6 text-sm">${r.h[0]}</span>${r.h}</span><span class="font-bold text-fifablue text-[16px]">${r.hs}</span></div>
+                <div class="flex items-center justify-between text-[15px] py-2"><span class="flex items-center gap-3 font-medium"><span class="team-logo w-6 h-6 text-sm">${r.a[0]}</span>${r.a}</span><span class="font-bold text-fifablue text-[16px]">${r.as}</span></div>
+                <a class="block text-center text-[12px] text-fifablue font-semibold mt-3 border-t pt-3 hover:underline">DONNÉES DU MATCH ›</a>
+            </div>
+        `);
+    });
+}
+
+// ==================== INITIALISATION ====================
+updateDateStrip();
+renderMatches('men');
+initGenderButtons();
+updateLiveCountDisplay();
+</script>
 </body>
 </html>
